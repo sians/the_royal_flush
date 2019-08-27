@@ -18,7 +18,6 @@ class ToiletsController < ApplicationController
     @toilet = Toilet.new(toilet_params)
     @toilet.owner_id = current_user.id
     authorize @toilet
-    byebug
     if @toilet.save
       redirect_to toilet_path(@toilet)
     else
