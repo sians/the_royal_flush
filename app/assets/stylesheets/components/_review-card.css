@@ -1,5 +1,4 @@
 .review-card {
-  width: 550px;
   height: 100px;
   display: flex;
   align-items: center;
@@ -11,14 +10,19 @@
   border-bottom-width: thin;
 }
 
-.review-card > div {
-  display: inline-flex;
-  padding-top: 10px;
+.review-card-content {
+  width: 100%;
+}
+
+.review-card-headings {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .review-card img {
-  display: block;
+  display: absolute;
   width: 65px;
   height: 65px;
-  margin-left: 20px;
+  margin: 20px;
 }

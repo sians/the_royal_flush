@@ -1,9 +1,82 @@
-<h1>Toilets#index</h1>
+
+<%# if policy(Toilet).create? %>
+<%#= link_to 'New toilet', new_toilet_path %>
+<%# end %>
+
+
+<div class="search-page-content">
+  <div class="search-page-results">
+    <div class="filters">
+      <ul class="icons icons-horizontal">
+        <li><i class="fas fa-book"></i></li>
+        <li><i class="fas fa-image"></i></li>
+        <li><i class="fas fa-music"></i></li>
+        <li><i class="fas fa-thermometer-half"></i></li>
+        <li><i class="fas fa-wifi"></i></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="toilet-cards">
+      <% if @toilets.empty? %>
+        <p>We couldn't find any toilets nearby!</p>
+      <% else %>
+        <h3>Toilets near you...</h3>
+        <div class="row">
+          <% @toilets.each do |toilet| %>
+            <div class="col-12 col-lg-6">
+              <%= link_to toilet_path(toilet) do %>
+                <div class="card toilet-card">
+                  <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
+                  <div class="card-content">
+                    <h5><%= toilet.name %></h5>
+                    <ul class="stars stars-sm">
+                      <li><i class="fas fa-star"></i></li>
+                      <li><i class="fas fa-star"></i></li>
+                      <li><i class="fas fa-star"></i></li>
+                      <li><i class="fas fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
 
 
 
-<% if policy(Toilet).create? %>
-<%= link_to 'New toilet', new_toilet_path %>
-<% end %>
+<!--         <div class="col-12 col-lg-6">
+          <div class="card toilet-card">
+            <div class="toilet-img" style="background-image: url('https://images.unsplash.com/photo-1566838318343-8ef19f4e82b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')"></div>
+            <div class="card-content">
+              <h5>Best View in Alfalma</h5>
+              <ul class="stars stars-sm">
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="card toilet-card">
+            <div class="toilet-img" style="background-image: url('https://images.unsplash.com/photo-1566838318343-8ef19f4e82b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')"></div>
+            <div class="card-content">
+              <h5>Best View in Alfalma</h5>
+              <ul class="stars stars-sm">
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="map-results">
 
-<p>Find me in app/views/toilets/index.html.erb</p>
+  </div>
+</div>
+
