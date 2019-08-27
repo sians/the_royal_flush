@@ -1,0 +1,21 @@
+.review-card {
+  width: 550px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+}
+
+.review-card > div {
+  display: inline-flex;
+  padding-top: 10px;
+}
+
+.review-card img {
+  display: block;
+  width: 65px;
+  height: 65px;
+  margin-left: 20px;
+}
