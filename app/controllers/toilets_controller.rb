@@ -7,6 +7,7 @@ class ToiletsController < ApplicationController
 
   def show
     authorize @toilet
+    @toilets = policy_scope(Toilet)
   end
 
   def new

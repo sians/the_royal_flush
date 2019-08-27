@@ -1,5 +1,95 @@
-<h1>Toilets#show</h1>
+<div class="container">
+  <%= link_to 'back', toilets_path, class: 'fine-sm-text' %>
+</div>
+<div class="container details-container">
+  <ul class="icons icons-vertical">
+    <li><i class="fas fa-book"></i></li>
+    <li><i class="fas fa-image"></i></li>
+    <li><i class="fas fa-music"></i></li>
+    <li><i class="fas fa-thermometer-half"></i></li>
+    <li><i class="fas fa-wifi"></i></li>
+    <li></li>
+  </ul>
+  <div class="img-container">
+    <%=  cl_image_tag @toilet.photo, height: 500, width: 500, crop: :fill %>
+  </div>
+  <div class="listing-details">
+    <h2><%= @toilet.name%></h2>
+    <div class="stars"></div>
+    <p class="toilet-description"><%= @toilet.description %></p>
 
-<%=  cl_image_tag @toilet.photo, height: 200, width: 300, crop: :fill %>
-<%=@toilet.name%>
-<p>Find me in app/views/toilets/show.html.erb</p>
+    <% if @toilet.available %>
+      <div class="availability">
+          <i class="fas fa-door-open available"></i>
+          <i class="fas fa-door-closed"></i>
+      </div>
+      <h4>Request to Book now:</h4>
+      <p>When:</p>
+      <div class="field"></div>
+      <div class="btn-submit">book now</div>
+    <% else %>
+      <div class="availability">
+          <i class="fas fa-door-open"></i>
+          <i class="fas fa-door-closed not-available"></i>
+      </div>
+      <p>This toilet is not currently available for bookings.</p>
+    <% end %>
+
+
+  </div>
+</div>
+
+<div class="map-banner">
+</div>
+
+<div class="container">
+  <h2>Reviews for this toilet:</h2>
+  <div class="stars">
+    <ul class="stars stars-lg">
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+    </ul>
+  </div>
+
+  <div class="review-card">
+    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
+    <div class="review-card-content">
+      <div class="review-card-headings">
+        <h3>Sarah</h3>
+        <p>March 2018</p>
+      </div>
+      <div>
+        <p>This toilet was amazing omg!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <h2>Other toilets nearby:</h2>
+  <div class="row">
+    <% @toilets.each do |toilet| %>
+      <div class="col-12 col-lg-6">
+        <%= link_to toilet_path(toilet) do %>
+          <div class="card toilet-card">
+            <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
+            <div class="card-content">
+              <h5><%= toilet.name %></h5>
+              <ul class="stars stars-sm">
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
