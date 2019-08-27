@@ -11,7 +11,7 @@ class CreateToilets < ActiveRecord::Migration[5.2]
       t.boolean :floor_heating
       t.boolean :speakers
       t.string :images
-      t.references :owner
+      t.references :owner, references: :users, foreign_key: { to_table: :users }
 
       t.timestamps
     end
