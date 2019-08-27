@@ -3,11 +3,12 @@
 </div>
 <div class="container details-container">
   <ul class="icons icons-vertical">
-    <li><i class="fas fa-book"></i></li>
-    <li><i class="fas fa-image"></i></li>
-    <li><i class="fas fa-music"></i></li>
-    <li><i class="fas fa-thermometer-half"></i></li>
-    <li><i class="fas fa-wifi"></i></li>
+
+    <li><i class="fas fa-book <%= 'active' if @toilet.reading_material %>"></i></li>
+    <li><i class="fas fa-image <%= 'active' if @toilet.window %>"></i></li>
+    <li><i class="fas fa-music <%= 'active' if @toilet.speakers %>"></i></li>
+    <li><i class="fas fa-thermometer-half <%= 'active' if @toilet.floor_heating %>"></i></li>
+    <li><i class="fas fa-wifi <%= 'active' if @toilet.wifi %>"></i></li>
     <li></li>
   </ul>
   <div class="img-container">
@@ -72,7 +73,7 @@
   <h2>Other toilets nearby:</h2>
   <div class="row">
     <% @toilets.each do |toilet| %>
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-4">
         <%= link_to toilet_path(toilet) do %>
           <div class="card toilet-card">
             <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
