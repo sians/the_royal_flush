@@ -2,7 +2,7 @@ class ToiletsController < ApplicationController
   before_action :fetch_toilet, only: %i[show destroy edit]
 
   def index
-    @toilets = Toilet.all
+    @toilets = policy_scope(Toilet)
   end
 
   def show
@@ -10,6 +10,7 @@ class ToiletsController < ApplicationController
 
   def new
     @toilet = Toilet.new
+    authorize @toilet
   end
 
   def create
