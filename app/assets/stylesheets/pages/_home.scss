@@ -1,1 +1,26 @@
-// Specific CSS for your home-page
+.hero {
+  background-image: url('https://www.luxurytraveldiary.com/wp-content/uploads/2016/08/loo-with-a-view.jpg');
+  background-size: cover;
+  background-repeat: none;
+  height: 95vh;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+
+}
+
+.search-form {
+  margin-left: 70px;
+  margin-top: -70px;
+  background-color: rgba(250,250,250, 0.8);
+  width: 500px;
+  height: 350px;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.search-form h1 {
+  margin: 20px 0px 70px;
+}
