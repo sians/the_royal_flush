@@ -1,0 +1,24 @@
+.my-listing-card {
+  width: 550px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.my-listing-card img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.my-listing-card > div {
+  display: block;
+  margin: auto;
+  padding-right: 50px;
+}
