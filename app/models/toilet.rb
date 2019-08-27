@@ -7,4 +7,6 @@ class Toilet < ApplicationRecord
   validates :address, presence: true, allow_blank: false
   validates :description, presence: true
   validates :images, presence: true
+
+  mount_uploader :photo, PhotoUploader
 end
