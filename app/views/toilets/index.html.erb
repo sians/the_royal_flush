@@ -1,2 +1,9 @@
 <h1>Toilets#index</h1>
+
+
+
+<% if policy(Toilet).create? %>
+<%= link_to 'New toilet', new_toilet_path %>
+<% end %>
+
 <p>Find me in app/views/toilets/index.html.erb</p>
