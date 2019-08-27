@@ -6,6 +6,9 @@
   background-color: white;
   background-size: cover;
   background-position: center;
+  border-bottom: lightgrey;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
 }
 
 .review-card > div {
