@@ -6,6 +6,7 @@ class ToiletsController < ApplicationController
   end
 
   def show
+    authorize @toilet
   end
 
   def new
@@ -15,6 +16,9 @@ class ToiletsController < ApplicationController
 
   def create
     @toilet = Toilet.new(toilet_params)
+    @toilet.owner_id = current_user.id
+    authorize @toilet
+    byebug
     if @toilet.save
       redirect_to toilet_path(@toilet)
     else
@@ -38,7 +42,7 @@ class ToiletsController < ApplicationController
   private
 
   def toilet_params
-    params.require(:toilet).permit(:address, :description, :images)
+    params.require(:toilet).permit(:name, :address, :description, :photo, :wifi, :reading_material, :air_con, :window, :floor_heating, :speakers, :photo_cache)
   end
 
   def fetch_toilet
