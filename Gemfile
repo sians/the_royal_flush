@@ -14,9 +14,10 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
-gem 'simple_form'
+gem 'simple_form', '~> 4.1.0'
 gem 'uglifier'
 gem 'webpacker'
+gem 'simple_form_fancy_uploads'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
