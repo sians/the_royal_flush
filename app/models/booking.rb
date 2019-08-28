@@ -3,6 +3,5 @@ class Booking < ApplicationRecord
   belongs_to :user
   has_one :review
 
-  validates :date, presence: true
-  validates :price, presence: true
+  validates :start_time, presence: true
 end

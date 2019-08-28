@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :toilets
+  resources :toilets do
+    resources :bookings, only: %i[new create edit update]
+  end
   devise_for :users
   root to: 'pages#home'
   get 'test', to: 'pages#test', as:'test'

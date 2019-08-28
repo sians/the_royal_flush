@@ -24,10 +24,13 @@
           <i class="fas fa-door-open available"></i>
           <i class="fas fa-door-closed"></i>
       </div>
-      <h4>Request to Book now:</h4>
-      <p>When:</p>
-      <div class="field"></div>
-      <div class="btn-submit">book now</div>
+      <% if policy(Booking).create? %>
+        <h4>Request to Book now:</h4>
+        <%= simple_form_for [@toilet, @booking] do |f| %>
+        <%= f.button :submit, class: 'btn btn-submit' %>
+        <% end %>
+      <% end %>
+
     <% else %>
       <div class="availability">
           <i class="fas fa-door-open"></i>
