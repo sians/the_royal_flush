@@ -21,6 +21,9 @@ SimpleForm.setup do |config|
     # You can make any of these extensions optional by
     # renaming `b.use` to `b.optional`.
 
+  config.components = [ :placeholder, :label, :hint, :input, :preview, :error ]
+
+
     # Determines whether to use HTML5 (:email, :url, ...)
     # and required attributes
     b.use :html5
@@ -63,6 +66,8 @@ SimpleForm.setup do |config|
     #
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
+
+  require 'simple_form/preview_component.rb'
 
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default

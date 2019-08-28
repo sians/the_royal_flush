@@ -1,29 +1,53 @@
-<h1>Add a new Toilet</h1>
+<div class="container" id="add_toilet" style="width: 500px">
+
+<h2 class="form-h2">Add a new Toilet</h2>
 
 
 <%= simple_form_for(@toilet) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :wifi %>
-    <%= f.input :reading_material %>
-    <%= f.input :air_con %>
-    <%= f.input :window %>
-    <%= f.input :floor_heating %>
-    <%= f.input :speakers %>
+    <div class="input-field">
+      <%= f.input :name,
+                  label: false,
+                  placeholder: "Toilet Name" %>
+    </div>
+    <div class="input-field">
+      <%= f.input :address,
+                  label: false,
+                  placeholder: "Address" %>
+    </div>
+    <div class="input-field">
+      <%= f.input :description,
+                  label: false,
+                  placeholder: "Description" %>
+    </div>
 
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :wifi %>
+        <%= f.input :reading_material %>
+        <%= f.input :air_con %>
+      </div>
+
+      <div class="col-6">
+        <%= f.input :window %>
+        <%= f.input :floor_heating %>
+        <%= f.input :speakers %>
+      </div>
+    </div>
+
+    <div>
+      <p>📸 Add a photo of your toilet!</p>
+      <%= f.input :photo,
+                  label: false,
+                  placeholder: false %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions" id="form-cta" style="margin-left: 100px">
+    <%= f.button :submit, class: "btn-submit"%>
   </div>
 <% end %>
 
-
-<%= link_to '<< Cancel', root_path %>
-
-<p>Find me in app/views/toilets/new.html.erb</p>
+<%= link_to '⇠ Cancel', root_path %>
