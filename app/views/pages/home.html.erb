@@ -5,13 +5,17 @@
     <div style="margin-bottom: 15px">
       <p>Where?</p>
     </div>
-    <form action="" method="" class="form">
-      <div class="searchBar">
-        <div><input class="form-control" id="address" type="text" style="margin-bottom: 25px" required></div>
-        <div><a href="/toilets"><button class="btn" id="loo-searcher" type="submit" style="text-decoration-style: none; width: 100%"><strong>Find a loo!</strong></button></a></div>
+
+
+<!--     <form action="/toilets" method="post" class="form">
+      <div class="form-group">
+        <input class="form-control" id="address" type="text" required></div>
+        <%#= link_to 'Find a loo!', toilets_path, class: 'btn-submit' %>
       </div>
     </form>
-  </div>
+  </div> -->
+
+  <%= render './toilets/login_form' %>
 
 <!--   <div class="search-form">
         <h1>Find the perfect loo, near you</h1>
