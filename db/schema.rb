@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_135849) do
     t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.string "name"
     t.float "latitude"
     t.float "longitude"
