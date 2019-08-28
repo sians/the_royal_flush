@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_114525) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.integer "price"
     t.float "latitude"
     t.float "longitude"
     t.index ["owner_id"], name: "index_toilets_on_owner_id"
