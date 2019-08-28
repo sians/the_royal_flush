@@ -2,12 +2,21 @@ class ToiletsController < ApplicationController
   before_action :fetch_toilet, only: %i[show destroy edit]
 
   def index
-    @toilets = policy_scope(Toilet)
+    @toilets = policy_scope(Toilet.geocoded)
+    @markers = @toilets.map do |toilet|
+      {
+        lat: toilet.latitude,
+        lng: toilet.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { toilet: toilet }),
+        image_url: helpers.asset_url('toilet-paper-icon.png')
+      }
+    end
   end
 
   def show
     authorize @toilet
     @toilets = policy_scope(Toilet)
+    @marker = [{ lat: @toilet.latitude, lng: @toilet.longitude, image_url: helpers.asset_url('toilet-paper-icon.png') }]
   end
 
   def new
