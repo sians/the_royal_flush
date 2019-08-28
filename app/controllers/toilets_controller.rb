@@ -2,8 +2,11 @@ class ToiletsController < ApplicationController
   before_action :fetch_toilet, only: %i[show destroy edit]
 
   def index
-    # raise
-    @toilets = policy_scope(Toilet).near(params[:query], 10)
+    if params[:query]
+    @toilets = policy_scope(Toilet).near(params[:query], 100)
+  else
+    @toilets = policy_scope(Toilet)
+  end
     @markers = @toilets.map do |toilet|
       {
         lat: toilet.latitude,
