@@ -21,9 +21,6 @@ SimpleForm.setup do |config|
     # You can make any of these extensions optional by
     # renaming `b.use` to `b.optional`.
 
-  config.components = [ :placeholder, :label, :hint, :input, :preview, :error ]
-
-
     # Determines whether to use HTML5 (:email, :url, ...)
     # and required attributes
     b.use :html5

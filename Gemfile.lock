@@ -237,7 +237,7 @@ DEPENDENCIES
   rails (= 5.2.3)
   redis
   sassc-rails
-  simple_form
+  simple_form (~> 4.1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier

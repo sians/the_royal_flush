@@ -18,7 +18,6 @@ gem 'sassc-rails'
 gem 'simple_form', '~> 4.1.0'
 gem 'uglifier'
 gem 'webpacker'
-gem 'simple_form_fancy_uploads'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
