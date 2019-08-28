@@ -20,6 +20,7 @@ class ToiletsController < ApplicationController
   def show
     authorize @toilet
     @booking = Booking.new
+    existing_booking
     @toilets = policy_scope(Toilet)
     @marker = [{ lat: @toilet.latitude, lng: @toilet.longitude, image_url: helpers.asset_url('toilet-paper-icon.png') }]
   end
@@ -54,6 +55,12 @@ class ToiletsController < ApplicationController
   end
 
   private
+
+  def existing_booking
+    if @toilet.bookings.where(user: current_user).present?
+      @existing_booking = @toilet.bookings.find_by(user: current_user)
+    end
+  end
 
   def toilet_params
     params.require(:toilet).permit(:name, :address, :description, :photo, :wifi, :reading_material, :air_con, :window, :floor_heating, :speakers, :photo_cache)

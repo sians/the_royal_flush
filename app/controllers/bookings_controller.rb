@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     @booking.toilet_id = @toilet.id
     if @booking.save
       @booking.toilet.available = false
+      @booking.toilet.save
       redirect_to toilet_path(@toilet), notice: "Booking created!"
     else
       redirect_to toilet_path(@toilet), notice: "Booking not created!"
@@ -29,8 +30,9 @@ class BookingsController < ApplicationController
     @toilet = @booking.toilet
     authorize @booking
     @booking.end_time = Time.now
-    if @booking.update
+    if @booking.save
       @booking.toilet.available = true
+      @booking.toilet.save
       redirect_to toilet_path(@toilet), notice: "Booking updated!"
     else
       redirect_to toilet_path(@toilet), notice: "Booking not updated!"
