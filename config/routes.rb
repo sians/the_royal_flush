@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'bookings/show'
+  get 'bookings/new'
+  get 'bookings/create'
+  get 'bookings/destroy'
   resources :toilets
   devise_for :users
   root to: 'pages#home'
