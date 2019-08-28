@@ -76,4 +76,5 @@ ActiveRecord::Schema.define(version: 2019_08_28_114525) do
   add_foreign_key "bookings", "toilets"
   add_foreign_key "bookings", "users"
   add_foreign_key "reviews", "bookings"
+  add_foreign_key "toilets", "users", column: "owner_id"
 end
