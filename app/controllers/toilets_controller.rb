@@ -16,6 +16,7 @@ class ToiletsController < ApplicationController
 
   def show
     authorize @toilet
+    @booking = Booking.new
     @toilets = policy_scope(Toilet)
     @marker = [{ lat: @toilet.latitude, lng: @toilet.longitude, image_url: helpers.asset_url('toilet-paper-icon.png') }]
   end
