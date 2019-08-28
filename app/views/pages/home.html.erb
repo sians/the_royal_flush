@@ -1,6 +1,6 @@
 <div class="hero home-content">
 
-  <div class="card" style="margin-top: 125px; padding-top: 45px; padding-left: 30px; padding-bottom: 30px; padding-right: 30px; width: 370px; height: 360px">
+  <div class="home-form">
     <h2 style="margin-bottom: 45px">Find the perfect loo, near you</h2>
     <div style="margin-bottom: 15px">
       <p>Where?</p>
@@ -8,18 +8,38 @@
     <form action="" method="" class="form">
       <div class="searchBar">
         <div><input class="form-control" id="address" type="text" style="margin-bottom: 25px" required></div>
-        <div><a href="/toilets"><button class="btn" id="loo-searcher" type="submit" style="text-decoration-style: none; width: 100%"><strong>Find a loo!</strong></button></a></div>
+        <div><a href="/toilets"><button class="btn-submit" id="loo-searcher" type="submit" style="text-decoration-style: none; width: 100%"><strong>Find a loo!</strong></button></a></div>
       </div>
     </form>
   </div>
 
-<!--   <div class="search-form">
-        <h1>Find the perfect loo, near you</h1>
-        <form action="/toilets">
-          <input type="text">
-          <input type="submit" class="btn-submit">
+</div>
 
-        </form>
-      </div>
- -->
+  <div class="toilet-cards">
+
+<div class="row">
+
+  <% @toilets.sample(8).each do |toilet| %>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <%= link_to toilet_path(toilet) do %>
+        <div class="card toilet-card">
+          <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
+          <div class="card-content">
+            <h5><%= toilet.name %></h5>
+            <ul class="stars stars-sm">
+              <li><i class="fas fa-star"></i></li>
+              <li><i class="fas fa-star"></i></li>
+              <li><i class="fas fa-star"></i></li>
+              <li><i class="fas fa-star"></i></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+<div>
+
 </div>
