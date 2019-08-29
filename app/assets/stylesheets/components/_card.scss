@@ -22,3 +22,37 @@
   padding-top: 10px;
 }
 
+// P R O F I L E
+// T O I L E T
+// C A R D
+
+.my-toilets-content h3 {
+  text-align: center;
+}
+
+.my-toilets-content {
+  text-align: right;
+  width: 900px;
+  margin: 0px auto;
+}
+
+.my-toilet-card {
+  margin-top: 30px;
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.my-toilet-card-actions {
+  text-align: right;
+  padding: 15px;
+}
+
+.my-toilet-card-details {
+  text-align: left;
+  padding: 15px;
+  width: 600px;
+}
+
+
