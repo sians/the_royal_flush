@@ -1,8 +1,16 @@
 class BookingsController < ApplicationController
+before_action :fetch_booking, only: %i[show edit destroy]
 
   def new
     # authorize @booking
     @booking = Booking.new
+  end
+
+  def show
+    @bookings = policy_scope(Booking)
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
   end
 
   def create
@@ -46,5 +54,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  private
+
+  def fetch_booking
+    @booking = Booking.find(params[:id])
+  end
 
 end
