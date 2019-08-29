@@ -1,0 +1,30 @@
+<div class="tab-container">
+  <div class="my-toilets-content">
+    <% if @toilets.empty? || @toilets.nil? %>
+      <h3>You don't have any toilets yet! <%= link_to 'Create one?', new_toilet_path, class: 'link' %></h3>
+    <% else %>
+      <%= link_to 'add a toilet', new_toilet_path, class: 'btn btn-submit' %>
+      <% @toilets.each do |toilet| %>
+        <div class="my-toilet-card">
+          <%=  cl_image_tag toilet.photo, height: 200, width: 200, crop: :fill %>
+          <div class="my-toilet-card-details">
+            <h4><%= toilet.name %></h4>
+            <p class="fine-sm-text">has been booked <%= toilet.bookings.size %> times</p>
+            <p><%= toilet.description[0..150] %></p>
+            <% if toilet.available %>
+              <p class="fine-sm-text">available</p>
+            <% else %>
+              <p class="fine-sm-text">in use</p>
+            <% end %>
+          </div>
+
+          <div class="my-toilet-card-actions">
+            <%= link_to 'edit', edit_toilet_path(toilet), class: 'fine-sm-text' %>
+            <%= link_to 'delete', toilet_path(toilet.id), method: :delete, class: 'fine-sm-text' %>
+          </div>
+
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
