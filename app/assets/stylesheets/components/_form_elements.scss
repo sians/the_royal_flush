@@ -2,6 +2,11 @@
 //   width: 350px;
 // }
 
+form {
+  width: 500px;
+  margin: auto;
+}
+
 .input-field {
   margin-bottom: 25px;
 }
@@ -14,7 +19,7 @@
 #form-cta {
   margin-top: 20px;
   margin-bottom: 20px;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
 }
 
