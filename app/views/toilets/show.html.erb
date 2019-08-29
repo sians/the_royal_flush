@@ -31,7 +31,7 @@
           <i class="fas fa-door-closed"></i>
       </div>
       <% if policy(Booking).create? %>
-        <h4>Book this toilet for <%= @toilet.price %>:</h4>
+        <h4>Book this toilet for <%= @toilet.price %>€:</h4>
         <%= simple_form_for [@toilet, @booking] do |f| %>
         <%= f.button :submit, class: 'btn btn-submit' %>
         <% end %>
