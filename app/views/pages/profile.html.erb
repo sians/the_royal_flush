@@ -1,5 +1,4 @@
-<div class="profiles" style="display: flex;">
-
+<div class="profiles">
   <div class="profile-card">
     <div class="avatar-user">
       <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
@@ -10,76 +9,27 @@
       <p><%= current_user.bio %></p>
       <p class="shitting-since"> Shitting since <%= current_user.created_at.to_date %></p>
     </div>
-
   </div>
 
-  <div class="three-cards-plus-bottom">
-    <div class="Three-cards" style="display: flex;">
-      <div class="profile-oneoutof-three"> My toilets</div>
-      <div class="profile-oneoutof-three"> My bookings</div>
-      <div class="profile-oneoutof-three"> My reviews</div>
-    </div>
+  <div class="profile-tab-group">
+    <ul class="nav-tabs" id="profile-tab-list">
+      <li class="nav-item profile-oneoutof-three"><a href="#tabs-1" class="nav-link">My Toilets</a></li>
+      <li class="nav-item profile-oneoutof-three"><a href="#tabs-2" class="nav-link">My Bookings</a></li>
+      <li class="nav-item profile-oneoutof-three"><a href="#tabs-3" class="nav-link">Notifications</a></li>
+    </ul>
 
     <div class="small-cards-bottom">
-      <h3></h3>
+      <div class="tab-content">
+        <div class="tab-pane" id="tabs-1">
+          <%= render 'toilets' %>
+        </div>
+        <div class="tab-pane active" id="tabs-2">
+          <%= render 'bookings' %>
+        </div>
+        <div class="tab-pane" id="tabs-3">
+          <%= render 'notifications' %>
+        </div>
+      </div>
     </div>
   </div>
-
-<div class="container">
-  <div class="my-toilets-content">
-    <% if @toilets.empty? || @toilets.nil? %>
-      <h3>You don't have any toilets yet! <%= link_to 'Create one?', new_toilet_path, class: 'link' %></h3>
-    <% else %>
-      <%= link_to 'add a toilet', new_toilet_path, class: 'btn btn-submit' %>
-      <% @toilets.each do |toilet| %>
-      <div class="my-toilet-card">
-        <%=  cl_image_tag toilet.photo, height: 200, width: 200, crop: :fill %>
-        <div class="my-toilet-card-details">
-          <h4><%= toilet.name %></h4>
-          <p class="fine-sm-text">has been booked <%= toilet.bookings.size %> times</p>
-          <p><%= toilet.description[0..150] %></p>
-          <% if toilet.available %>
-            <p class="fine-sm-text">available</p>
-          <% else %>
-            <p class="fine-sm-text">in use</p>
-          <% end %>
-        </div>
-
-        <div class="my-toilet-card-actions">
-          <%= link_to 'edit', edit_toilet_path(toilet), class: 'fine-sm-text' %>
-          <%= link_to 'delete', toilet_path(toilet.id), method: :delete, class: 'fine-sm-text' %>
-        </div>
-
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="my-toilets-content">
-    <h3>My bookings</h3>
-    <% if current_user.bookings.empty? %>
-      <h3>You don't have any bookings! <%= link_to 'Create one?', toilets_path, class: 'link' %></h3>
-    <% else %>
-      <% current_user.bookings.each do |booking| %>
-      <div class="my-toilet-card">
-        <%= cl_image_tag booking.toilet.photo, height: 200, width: 200, crop: :fill %>
-        <div class="my-toilet-card-details">
-          <p><%= booking.toilet.name %> </p>
-          <p class="fine-sm-text"> Booked on <%= booking.start_time %> </p>
-        <% if booking.review.present? %>
-          <p><%= booking.review.stars %> </p>
-          <p> <%= booking.review.description %></p>
-        <% end %>
-        </div>
-
-        <div class="my-toilet-card-actions">
-          <% if booking.review.nil?  %>
-            <%= link_to 'add a review', new_booking_review_path(booking), class: 'fine-sm-text' %>
-          <% else %>
-              <%= link_to 'update the review', new_booking_review_path(booking), class: 'fine-sm-text' %>
-          <% end %>
-        </div>
-        </div>
-        <% end %>
-      <% end %>
 </div>
