@@ -2,8 +2,7 @@
 <%= form_tag toilets_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control address-input",
-    placeholder: "Your location"
+    class: "form-control address-input"
   %>
-  <%= submit_tag "Find a loo!", class: "btn-submit", style: "margin-top: 25px" %>
+  <%= submit_tag "Find a loo!", class: "btn-submit" %>
 <% end %>

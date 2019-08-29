@@ -57,8 +57,9 @@ class ToiletsController < ApplicationController
   private
 
   def existing_booking
-    if @toilet.bookings.where(user: current_user).present?
-      @existing_booking = @toilet.bookings.find_by(user: current_user)
+    user_bookings = @toilet.bookings.where(user: current_user)
+    if user_bookings.any?
+      @existing_booking = user_bookings.find_by(active_booking: true)
     end
   end
 
