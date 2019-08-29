@@ -1,3 +1,30 @@
+<div class="profiles" style="display: flex;">
+
+  <div class="profile-card">
+    <div class="avatar-user">
+      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+    </div>
+
+    <div class="card-user-bio">
+      <h2>Hi, I'm <%= current_user.full_name.capitalize %></h2>
+      <p><%= current_user.bio %></p>
+      <p class="shitting-since"> Shitting since <%= current_user.created_at.to_date %></p>
+    </div>
+
+  </div>
+
+  <div class="three-cards-plus-bottom">
+    <div class="Three-cards" style="display: flex;">
+      <div class="profile-oneoutof-three"> My toilets</div>
+      <div class="profile-oneoutof-three"> My bookings</div>
+      <div class="profile-oneoutof-three"> My reviews</div>
+    </div>
+
+    <div class="small-cards-bottom">
+      <h3></h3>
+    </div>
+  </div>
+
 <div class="container">
   <div class="my-toilets-content">
     <% if @toilets.empty? || @toilets.nil? %>
