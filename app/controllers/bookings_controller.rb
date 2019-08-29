@@ -9,7 +9,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @toilet = Toilet.find(params[:toilet_id])
     authorize @booking
+    current_user.bookings.each do |booking|
+      if booking.active_booking
+        redirect_to toilet_path(@toilet), notice: "You're already using a toilet somewhere else!" and return
+      end
+    end
     @booking.user_id = current_user.id
+    @booking.active_booking = true
     @booking.start_time = Time.now
     @booking.toilet_id = @toilet.id
     if @booking.save
@@ -30,6 +36,7 @@ class BookingsController < ApplicationController
     @toilet = @booking.toilet
     authorize @booking
     @booking.end_time = Time.now
+    @booking.active_booking = false
     if @booking.save
       @booking.toilet.available = true
       @booking.toilet.save
