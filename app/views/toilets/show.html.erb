@@ -4,11 +4,11 @@
 <div class="container details-container">
   <ul class="icons icons-vertical">
 
-    <li><i class="fas fa-book <%= 'active' if @toilet.reading_material %>"></i></li>
-    <li><i class="fas fa-image <%= 'active' if @toilet.window %>"></i></li>
-    <li><i class="fas fa-music <%= 'active' if @toilet.speakers %>"></i></li>
-    <li><i class="fas fa-thermometer-half <%= 'active' if @toilet.floor_heating %>"></i></li>
-    <li><i class="fas fa-wifi <%= 'active' if @toilet.wifi %>"></i></li>
+    <li><i class="fas fa-book <%= 'active' if @toilet.reading_material %>"  data-toggle="tooltip" data-placement="left" title="reading material"></i></li>
+    <li><i class="fas fa-image <%= 'active' if @toilet.window %>" data-toggle="tooltip" data-placement="left" title="shit with view"></i></li>
+    <li><i class="fas fa-music <%= 'active' if @toilet.speakers %>" data-toggle="tooltip" data-placement="left" title="bring your tunes"></i></li>
+    <li><i class="fas fa-thermometer-half <%= 'active' if @toilet.floor_heating %>" data-toggle="tooltip" data-placement="left" title="warm feet"></i></li>
+    <li><i class="fas fa-wifi <%= 'active' if @toilet.wifi %>" data-toggle="tooltip" data-placement="left" title="shit and surf"></i></li>
     <li></li>
   </ul>
   <div class="img-container">
