@@ -1,8 +1,9 @@
 <h1>Leave a review</h1>
 <p>Find me in app/views/reviews/new.html.erb</p>
 
-<%= simple_form_for [@booking, @review], new_booking_review_path do |f| %>
+<%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :stars %>
+
   <%= f.input :description %>
   <%= f.submit "Add a review", class: "btn-submit" %>
 
