@@ -9,5 +9,10 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @toilets = Toilet.all.where(owner_id: current_user.id)
   end
+
+  private
+
+
 end
