@@ -10,3 +10,5 @@ import { tabsEventListener} from '../plugins/profile';
 initMapbox();
 initAutocomplete();
 tabsEventListener();
+
+$('[data-toggle="tooltip"]').tooltip();

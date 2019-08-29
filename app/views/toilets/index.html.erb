@@ -8,11 +8,11 @@
   <div class="search-page-results">
     <div class="filters">
       <ul class="icons icons-horizontal">
-        <li><i class="fas fa-book"></i></li>
-        <li><i class="fas fa-image"></i></li>
-        <li><i class="fas fa-music"></i></li>
-        <li><i class="fas fa-thermometer-half"></i></li>
-        <li><i class="fas fa-wifi"></i></li>
+        <li><i class="fas fa-book" data-toggle="tooltip" data-placement="bottom" title="reading material"></i></li>
+        <li><i class="fas fa-image" data-toggle="tooltip" data-placement="bottom" title="shit with view"></i></li>
+        <li><i class="fas fa-music" data-toggle="tooltip" data-placement="bottom" title="bring your tunes"></i></li>
+        <li><i class="fas fa-thermometer-half" data-toggle="tooltip" data-placement="bottom" title="warm feet"></i></li>
+        <li><i class="fas fa-wifi" data-toggle="tooltip" data-placement="bottom" title="shit and surf"></i></li>
         <li></li>
       </ul>
     </div>
@@ -28,7 +28,7 @@
                 <div class="card toilet-card">
                   <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
                   <div class="card-content">
-                    <h5><%= toilet.name %></h5>
+                    <h6><%=truncate(toilet.name, length: 27)%></h6>
                     <ul class="stars stars-sm">
                       <li><i class="fas fa-star"></i></li>
                       <li><i class="fas fa-star"></i></li>

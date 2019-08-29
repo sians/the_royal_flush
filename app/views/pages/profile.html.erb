@@ -32,4 +32,33 @@
       </div>
     </div>
   </div>
+
+  <div class="my-toilets-content">
+    <h3>My bookings</h3>
+    <% if current_user.bookings.empty? %>
+      <h3>You don't have any bookings! <%= link_to 'Create one?', toilets_path, class: 'link' %></h3>
+    <% else %>
+      <% current_user.bookings.each do |booking| %>
+      <div class="my-toilet-card">
+        <%= cl_image_tag booking.toilet.photo, height: 200, width: 200, crop: :fill %>
+        <div class="my-toilet-card-details">
+          <p><%= booking.toilet.name %> </p>
+          <p class="fine-sm-text"> Booked on <%= booking.start_time %> </p>
+        <% if booking.review.present? %>
+          <p><%= booking.review.stars %> </p>
+          <p> <%= booking.review.description %></p>
+        <% end %>
+        </div>
+
+        <div class="my-toilet-card-actions">
+          <% if booking.review.nil?  %>
+            <%= link_to 'add a review', new_booking_review_path(booking), class: 'fine-sm-text' %>
+          <% else %>
+            <%= link_to 'update review', edit_review_path(booking.review.id), class: 'fine-sm-text' %>
+            <%= link_to 'delete review', review_path(booking.review.id), method: :delete, class: 'fine-sm-text' %>
+          <% end %>
+        </div>
+        </div>
+        <% end %>
+      <% end %>
 </div>
