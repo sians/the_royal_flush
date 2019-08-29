@@ -60,27 +60,37 @@
 
 <div class="container">
   <h2>Reviews for this toilet:</h2>
-  <div class="stars">
-    <ul class="stars stars-lg">
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
-    </ul>
-  </div>
 
-  <div class="review-card">
-    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
-    <div class="review-card-content">
-      <div class="review-card-headings">
-        <h3>Sarah</h3>
-        <p>March 2018</p>
-      </div>
-      <div>
-        <p>This toilet was amazing omg!</p>
-      </div>
+  <!-- this doesn't work. -->
+  <!-- create a @toilet.overall_rating method in model -->
+  <!-- need to make the condition based on REVIEWS NOT BOOKINGS -->
+  <% if @reviews.empty? %>
+    <p>This toilet doesn't have any reviews yet</p>
+  <% else %>
+    <div class="stars">
+      <ul class="stars stars-lg">
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+      </ul>
     </div>
-  </div>
+
+    <% @reviews.each do |review| %>
+      <div class="review-card">
+        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
+        <div class="review-card-content">
+          <div class="review-card-headings">
+            <h3></h3>
+            <p>March 2018</p>
+          </div>
+          <div>
+            <p><%= review.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
 </div>
 
