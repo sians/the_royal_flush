@@ -19,18 +19,23 @@
     <div class="stars"></div>
     <p class="toilet-description"><%= @toilet.description %></p>
 
-    <% if @toilet.available %>
+    <% if @existing_booking && @existing_booking.toilet.available == false  %>
+      <h4>You are currently on the toilet.</h4>
+        <%= simple_form_for [@toilet, @existing_booking], method: :patch do |f| %>
+        <%= f.button :submit, "I'm done!", class: 'btn btn-submit btn-green' %>
+        <% end %>
+
+    <% elsif @toilet.available %>
       <div class="availability">
           <i class="fas fa-door-open available"></i>
           <i class="fas fa-door-closed"></i>
       </div>
       <% if policy(Booking).create? %>
-        <h4>Request to Book now:</h4>
+        <h4>Book this toilet for <%= @toilet.price %>€:</h4>
         <%= simple_form_for [@toilet, @booking] do |f| %>
         <%= f.button :submit, class: 'btn btn-submit' %>
         <% end %>
       <% end %>
-
     <% else %>
       <div class="availability">
           <i class="fas fa-door-open"></i>
