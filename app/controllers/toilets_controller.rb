@@ -33,6 +33,7 @@ class ToiletsController < ApplicationController
   def create
     @toilet = Toilet.new(toilet_params)
     @toilet.owner_id = current_user.id
+    @toilet.available = true
     authorize @toilet
     if @toilet.save
       redirect_to toilet_path(@toilet)
@@ -42,6 +43,7 @@ class ToiletsController < ApplicationController
   end
 
   def edit
+    authorize @toilet
   end
 
   def update
@@ -50,8 +52,10 @@ class ToiletsController < ApplicationController
   end
 
   def destroy
+    raise
+    authorize @toilet
     @toilet.destroy
-    redirect_to toilets_path
+    redirect_to profile_path, notice: 'Toilet successfully deleted!'
   end
 
   private

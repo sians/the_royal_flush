@@ -1,2 +1,10 @@
-<h1>Toilets#edit</h1>
-<p>Find me in app/views/toilets/edit.html.erb</p>
+<div class="container">
+  <div class="edit-toilet-details">
+    <h1><%= @toilet.name %></h1>
+    <%=  cl_image_tag @toilet.photo, height: 300, width: 500, crop: :fill %>
+  </div>
+
+
+  <%= render 'edit_toilet_form' %>
+
+</div>
