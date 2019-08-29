@@ -1,11 +1,9 @@
-<h1>Leave a review</h1>
+<h1>Edit your review</h1>
 <%= link_to 'cancel', profile_path, class: 'btn btn-submit' %>
 
 <%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :stars %>
   <%= f.input :description %>
-  <%= f.submit "Add a review", class: "btn-submit" %>
+  <%= f.submit "Edit review", class: "btn-submit" %>
 
 <% end %>
-
-

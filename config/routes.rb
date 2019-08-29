@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :bookings do
     resources :reviews, only: %i[new create]
   end
+  resources :reviews, only: %i[edit update destroy]
+
   devise_for :users
   root to: 'pages#home'
   get 'test', to: 'pages#test', as:'test'

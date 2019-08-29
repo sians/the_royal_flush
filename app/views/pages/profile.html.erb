@@ -76,7 +76,8 @@
           <% if booking.review.nil?  %>
             <%= link_to 'add a review', new_booking_review_path(booking), class: 'fine-sm-text' %>
           <% else %>
-              <%= link_to 'update the review', new_booking_review_path(booking), class: 'fine-sm-text' %>
+            <%= link_to 'update review', edit_review_path(booking.review.id), class: 'fine-sm-text' %>
+            <%= link_to 'delete review', review_path(booking.review.id), method: :delete, class: 'fine-sm-text' %>
           <% end %>
         </div>
         </div>
