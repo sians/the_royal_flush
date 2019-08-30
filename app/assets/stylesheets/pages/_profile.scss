@@ -1,5 +1,6 @@
 .profiles {
   display: flex;
+  padding-bottom: 70px;
 }
 
 .profile-tab-group {
@@ -36,4 +37,18 @@ ul.nav-tabs li:hover {
 .active-bookings-content {
   text-align: left;
   margin-top: 40px;
+}
+
+.in-use {
+  border-radius: 3px;
+  background-color: #C2252D;
+  color: white;
+  text-align: center;
+}
+
+.toilet-available {
+  border-radius: 3px;
+  background-color: #1D8545;
+  color: white;
+  text-align: center;
 }
