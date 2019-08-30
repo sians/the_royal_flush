@@ -18,7 +18,6 @@
     <h2><%= @toilet.name%></h2>
     <div class="stars"></div>
     <p class="toilet-description"><%= @toilet.description %></p>
-
     <% if @existing_booking && @existing_booking.active_booking == true  %>
       <h4>You are currently on the toilet.</h4>
         <%= simple_form_for [@toilet, @existing_booking], method: :patch do |f| %>
@@ -64,7 +63,7 @@
   <!-- this doesn't work. -->
   <!-- create a @toilet.overall_rating method in model -->
   <!-- need to make the condition based on REVIEWS NOT BOOKINGS -->
-  <% if @reviews.empty? %>
+  <% if @toilet.reviews.empty? %>
     <p>This toilet doesn't have any reviews yet</p>
   <% else %>
     <div class="stars">
@@ -76,7 +75,7 @@
       </ul>
     </div>
 
-    <% @reviews.each do |review| %>
+    <% @toilet.reviews.each do |review| %>
       <div class="review-card">
         <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
         <div class="review-card-content">

@@ -3,10 +3,10 @@ class ToiletsController < ApplicationController
 
   def index
     if params[:query]
-    @toilets = policy_scope(Toilet).near(params[:query], 100)
-  else
-    @toilets = policy_scope(Toilet)
-  end
+      @toilets = policy_scope(Toilet).near(params[:query], 100)
+    else
+      @toilets = policy_scope(Toilet)
+    end
     @markers = @toilets.map do |toilet|
       {
         lat: toilet.latitude,
@@ -23,7 +23,6 @@ class ToiletsController < ApplicationController
     existing_booking
     @toilets = policy_scope(Toilet)
     @marker = [{ lat: @toilet.latitude, lng: @toilet.longitude, image_url: helpers.asset_url('toilet-paper-icon.png') }]
-    get_toilet_reviews
   end
 
   def new
@@ -60,17 +59,9 @@ class ToiletsController < ApplicationController
 
   private
 
-# returns an array of review instances associated with a booking
-# if there are no reviews, returns an empty array
-  def get_toilet_reviews
-    @reviews = @toilet.bookings.map { |booking| booking.review unless booking.review.nil? }.reject { |item| item.blank? }
-  end
-
   def existing_booking
     user_bookings = @toilet.bookings.where(user: current_user)
-    if user_bookings.any?
-      @existing_booking = user_bookings.find_by(active_booking: true)
-    end
+    @existing_booking = user_bookings.find_by(active_booking: true) if user_bookings.any?
   end
 
   def toilet_params
