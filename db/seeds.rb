@@ -44,7 +44,7 @@ end
 puts "Bookings are done."
 
 puts "Now adding reviews......"
-description = ["The experience of a lifetime!", "OMG! Amazing!", "I had to catch up with my reading someday. This was it!", "What a junk! A huge disappointment.", "Don't ever go there.", "Great sound system. Why do people party at discos?", "No matter what, there's so such thing like home.", "Don't be fouled. The sound isn't even stereo...", "A decent shithouse", "Excellent value for money", "I didn't know what life was until I found this place", "Before I came to this spot I thought sex was the best thing in life"]
+description = ["The experience of a lifetime!", "OMG! Amazing!", "I had to catch up with my reading someday!...", "What a junk! A huge disappointment.", "Don't ever go there.", "Great sound system. Why do people party at discos?", "There's so such thing like home.", "Don't be fooled. The sound isn't even stereo...", "A decent shithouse.", "Excellent value for money.", "I didn't know what life was until I found this place", "Before I came to this spot I thought sex was the best thing in life."]
 60.times do
   r = Review.new(booking: Booking.all.sample, stars: rand(0..5), description: description.sample)
   r.save
