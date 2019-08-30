@@ -1,2 +1,8 @@
-<h2><%= toilet.name %></h2>
-<p><%= toilet.address %></p>
+<%#=  cl_image_tag toilet.photo, height: 50, width: 100, crop: :fill %>
+<div class="info-window-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)">
+  <p>p</p>
+</div>
+<div class="info-window-details">
+  <h5><%= toilet.name %></h5>
+  <p class="fine-sm-text"><%= toilet.address %></p>
+</div>
