@@ -6,29 +6,32 @@
       <div class="notification-heading">
         <h5>Pending notifications:</h5>
       </div>
-      <% current_user.bookings.each do |booking| %>
-        <div class="review-card">
-          <% if booking.user_id == current_user.id %>
-              <div class="review-card-content" style="display: flex">
+
+
+      <% @toilets.each do |toilet| %>
+        <% toilet.bookings.each do |booking| %>
+          <% if booking.user_id != current_user.id %>
+            <div class="review-card">
+              <div class="review-card-content">
                 <div style="margin-left: 30px; margin-top: 20px">
                   <i class="fas fa-bell" style="font-size: 42px; color: #F76D9F"></i>
                 </div>
                 <div style="margin-left: 30px; margin-top: 15px">
-                  <h5>You visited
+                  <h5>
                     <%= link_to toilet_path(booking.toilet) do %>
                       <%= booking.toilet.name %>
                     <% end %>
+                    was visited by
+                    <%= User.find(booking.user_id).full_name %>
                   </h5>
-
                 </div>
               </div>
-          <% else %>
-            <div class="review-card-content">
-              <h5>Someone has booked to visit your toilet!</h5>
             </div>
           <% end %>
-        </div>
+        <% end %>
       <% end %>
+
+
     <% end %>
   </div>
 </div>
