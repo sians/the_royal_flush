@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile', as: 'profile'
   get 'notifications', to: 'pages#notifications', as: 'notifications'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/404', to: "errors#not_found"
 end
