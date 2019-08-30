@@ -1,5 +1,6 @@
 <div class="tab-container">
   <div class="my-toilets-content">
+    <h3>My Toilets</h3>
     <% if @toilets.empty? || @toilets.nil? %>
       <h3>You don't have any toilets yet! <%= link_to 'Create one?', new_toilet_path, class: 'link' %></h3>
     <% else %>

@@ -1,26 +1,24 @@
 <div class="tab-container">
-
-  <div class="review-card">
-    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
-    <div class="review-card-content">
-      <div class="review-card-headings">
-          <% current_user.bookings.each do |booking| %>
-            <% if booking.active_booking = true %>
-              <h4>🚨 New booking request pending</h4>
-              <% booking_year = booking.created_at.year %>
-              <% booking_month = booking.created_at.month %>
-              <% booking_day = booking.created_at.day %>
-              <% booking_hour = booking.created_at.hour %>
-              <% booking_minute = booking.created_at.min %>
-              <p><%= booking_year %>-<%= booking_month %>-<%= booking_day %> | <%= booking_hour %>:<%= booking_minute %></p>
-      </div>
-      <div style="display: flex">
-        <p><strong><%= User.find(booking.user_id).full_name %></strong> just sent your a request to book <strong><%= booking.toilet.name %></strong></p>
-            <% end %>
+  <div class="my-toilets-content">
+    <h3>My Notifications</h3>
+    <% if current_user.bookings.empty? %>
+      <p>You don't have any notifications.</p>
+    <% else %>
+      <% current_user.bookings.each do |booking| %>
+        <div class="review-card">
+          <% if booking.user_id == current_user.id %>
+              <div class="review-card-content">
+                <h5>You visited <%= booking.toilet.name %></h5>
+                <p>How was it?</p>
+              </div>
+          <% else %>
+            <div class="review-card-content">
+              <h5>Someone has booked to visit your toilet!</h5>
+            </div>
           <% end %>
-      </div>
-    </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-
 </div>
 
