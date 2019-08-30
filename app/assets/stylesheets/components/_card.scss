@@ -56,3 +56,42 @@
 }
 
 
+// P R O F I L E
+// B O O K I N G
+// C A R D
+
+.my-booking-content h3 {
+
+}
+
+.my-booking-content {
+  text-align: right;
+  width: 900px;
+  margin: 0px auto;
+}
+
+.my-booking-card {
+  height: 100px;
+  margin-top: 30px;
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.my-booking-card-actions {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  padding: 15px;
+}
+
+.my-booking-card-details {
+  text-align: left;
+  padding: 15px;
+  width: 500px;
+}
+
+.my-booking-card-details p {
+  margin: 0px;
+}
