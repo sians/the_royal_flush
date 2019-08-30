@@ -1,0 +1,916 @@
+@import "compass/css3";
+
+///colors n shit
+$bek: #241f11;
+$line: #3C433B;
+$wyt: #FFFFFF;
+$fill: #259138;
+$piss: #F1CE34;
+$shinay: #2CF1BF;
+
+$lightfill: hsl(hue($fill),saturation($fill + 57),lightness($fill + 43));
+$lightlightfill: hsl(hue($fill),saturation($fill + 80),lightness($fill + 81));
+$lightlightlightfill: hsl(hue($fill),saturation($fill + 111),lightness($fill + 125));
+
+$dedpiss: lighten($piss,20%);
+
+*,*:before,*:after{
+  box-sizing: border-box;
+}
+
+//@param: $position is duh the position you want or null if nah,
+//@param: $which is if u want 'before', 'after', or 'both' or null if nah
+@mixin before-and-after($position, $which) {
+    @if($position != null){
+        position: $position;
+    }
+
+    $selector: '';
+    @if($which==before) {
+        $selector: '&:'+$which;
+    }
+    @else if($which==after) {
+        $selector: '&:'+$which;
+    }
+    @else if($which==both) {
+        $selector: '&:before,&:after';
+    }
+    @if($which != null){
+        #{$selector} {
+            content: "";
+            display: block;
+            @if($position !=static) {
+                position: absolute;
+            }
+        }
+    }
+}
+
+html{
+  background: $bek;
+  min-width: 20em;
+  height: 100vh;
+  min-height: 30em;
+  position: relative;
+}
+
+body{
+  background: transparent;
+  // outline: 1px solid;
+  padding: 1em;
+  width: 18em;
+  height: 25em;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#toilet{
+  // transform: perspective(20em) rotateZ(45deg) rotateX(-5deg) rotateY(-10deg) skewX(-10deg) translateZ(0);
+  transform-style: preserve-3d;
+  transform: rotate(45deg) skewX(-10deg) translateZ(0);
+  z-index: 9;
+  // perspective: 1100px;
+  @include before-and-after(absolute,both);
+  top: 10em;
+  left: 1.75em;
+  width: 8em;
+  height: 10em;
+  border-radius: 2em 2em 5em 5em;
+  animation: glowpiss 7s linear 0s infinite;
+  background: $piss;
+  box-shadow:
+    // inside toilet
+    inset 0 0 0 2em $wyt,
+    inset .25em .25em 0 2em $lightlightfill,
+    inset .4375em .4375em 0 2em $line,
+    inset 2.5em 1.75em 0 1em $fill,
+    inset 1.75em .25em 0 3em $lightfill,
+
+    //the animated part
+    inset 1.75em .25em .5em 3.125em $dedpiss,
+
+    //cover
+    .25em .0625em 0 0 $lightlightlightfill,
+    .25em .25em 0 -.125em $lightlightlightfill,
+    .25em .3125em 0 -.125em $lightlightlightfill,
+
+    0 0 0 .25em $line,
+    .125em .125em 0 .25em $line,
+
+    //mouth
+    .625em 0em 0 0 $lightlightfill,
+    // .625em -.25em 0 0 $lightlightfill,
+    1em -1.6875em 0 0 $wyt,
+    1.0625em -1.875em 0 0 $wyt,
+    1.125em -1.75em 0 0 $wyt,
+    1.1875em -1.625em 0 0 $wyt,
+    1.25em -1.5em 0 0 $wyt,
+    1.3215em -1.375em 0 0 $wyt,
+    1.375em -1.25em 0 0 $wyt,
+    1.4375em -1.125em 0 0 $wyt,
+    1.5em -1em 0 0 $wyt,
+    1.5625em -.875em 0 0 $wyt,
+    1.625em -.75em 0 0 $wyt,
+
+    1.375em .25em 0 0 $wyt,
+    1.4375em .375em 0 0 $wyt,
+    1.5em .5em 0 0 $wyt,
+    1.5625em .625em 0 0 $wyt,
+    1.625em .75em 0 0 $wyt,
+
+    //lineart mouth
+    1.5em 1em 0 0 $line,
+    .75em -.75em 0 0 $line,
+
+    //LINE FUCK
+    .75em -1.9375em 0 0 $line,
+    .9375em -2.125em 0 0 $line,
+    1.1875em -2em 0 0 $line,
+    1.25em -1.875em 0 0 $line,
+    1.3125em -1.75em 0 0 $line,
+    1.375em -1.625em 0 0 $line,
+    1.4375em -1.5em 0 0 $line,
+    1.5em -1.375em 0 0 $line,
+    1.5625em -1.25em 0 0 $line,
+    1.625em -1.125em 0 0 $line,
+    1.6875em -1em 0 0 $line,
+    1.75em -.875em 0 0 $line,
+
+    // lower base
+    3.0625em 1.125em 0 -1.25em $lightlightlightfill,
+    3.125em 1.1875em 0 -1.25em $lightlightlightfill,
+    3.1875em 1.25em 0 -1.25em $lightlightlightfill,
+    3.25em 1.3125em 0 -1.25em $lightlightlightfill,
+    3.3125em 1.375em 0 -1.25em $lightlightlightfill,
+    3.375em 1.4375em 0 -1.25em $lightlightlightfill,
+    3.4375em 1.5em 0 -1.25em $lightlightlightfill,
+    3.5em 1.5625em 0 -1.25em $lightlightlightfill,
+    3.5625em 1.625em 0 -1.25em $lightlightlightfill,
+    3.625em 1.6875em 0 -1.25em $lightlightlightfill,
+    3.6875em 1.75em 0 -1.25em $lightlightlightfill,
+    3.75em 1.8125em 0 -1.25em $lightlightlightfill,
+    3.8125em 1.875em 0 -1.25em $lightlightlightfill,
+    3.875em 1.9375em 0 -1.25em $lightlightlightfill,
+    3.9375em 2em 0 -1.25em $lightlightlightfill,
+    4em 2.0625em 0 -1.25em $lightlightlightfill,
+    4.0625em 2.125em 0 -1.25em $lightlightlightfill,
+    4.125em 2.1875em 0 -1.25em $lightlightlightfill,
+    4.1875em 2.25em 0 -1.25em $lightlightlightfill,
+    4.25em 2.3125em 0 -1.25em $lightlightlightfill,
+    4.3125em 2.375em 0 -1.25em $lightlightlightfill,
+    4.375em 2.4375em 0 -1.25em $lightlightlightfill,
+    4.4375em 2.5em 0 -1.25em $lightlightlightfill,
+    4.5em 2.5625em 0 -1.25em $lightlightlightfill,
+    4.5625em 2.625em 0 -1.25em $lightlightlightfill,
+    4.625em 2.6875em 0 -1.25em $lightlightlightfill,
+    4.6875em 2.75em 0 -1.25em $lightlightlightfill,
+
+    //shitstorm of a lineart - LOWER BASE
+    4.875em 2.875em 0 -1.25em $line,
+    4.625em 2.875em 0 -1.125em $line,
+    3.0625em .875em 0 -1.25em $line,
+    3.125em 1em 0 -1.25em $line,
+    3.1875em 1.0625em 0 -1.25em $line,
+    3.25em 1.125em 0 -1.25em $line,
+    3.3125em 1.1875em 0 -1.25em $line,
+    3.375em 1.25em 0 -1.25em $line,
+    3.4375em 1.3125em 0 -1.25em $line,
+    3.5em 1.375em 0 -1.25em $line,
+    3.5625em 1.4375em 0 -1.25em $line,
+    3.625em 1.5em 0 -1.25em $line,
+    3.6875em 1.5625em 0 -1.25em $line,
+    3.75em 1.625em 0 -1.25em $line,
+    3.8125em 1.6875em 0 -1.25em $line,
+    3.875em 1.75em 0 -1.25em $line,
+    3.9375em 1.8125em 0 -1.25em $line,
+    4em 1.875em 0 -1.25em $line,
+    4.0625em 1.9375em 0 -1.25em $line,
+    4.125em 2em 0 -1.25em $line,
+    4.1875em 2.0625em 0 -1.25em $line,
+    4.25em 2.125em 0 -1.25em $line,
+    4.3125em 2.1875em 0 -1.25em $line,
+    4.375em 2.25em 0 -1.25em $line,
+    4.4375em 2.3125em 0 -1.25em $line,
+    4.5em 2.375em 0 -1.25em $line,
+    4.5625em 2.4375em 0 -1.25em $line,
+    4.625em 2.5em 0 -1.25em $line,
+    4.6875em 2.5625em 0 -1.25em $line,
+    4.75em 2.625em 0 -1.25em $line,
+    4.8125em 2.6875em 0 -1.25em $line,
+    4.875em 2.75em 0 -1.25em $line,
+
+    //drop shadow
+    4.75em 2.625em 0 -.5em rgba($line,.25),
+    4.75em 2.625em 0 .25em rgba($line,.25),
+    4.75em 2.625em 0 1em rgba($line,.25)
+
+  ;
+  z-index: 9999;
+
+  &:before{
+    z-index: -999;
+    transform: translateZ(0);
+    width: 9em;
+    height: 4em;
+    background: $wyt;
+    // border: .125em solid $lightlightfill;
+    border-radius: .5em;
+    top: -9.5em;
+    left: -4.875em;
+
+    box-shadow:
+      //top
+      .0625em .0625em 0 0 $lightlightlightfill,
+      .125em .125em 0 0 $lightlightlightfill,
+      .1875em 1875em 0 0 $lightlightlightfill,
+      .25em .25em 0 0 $lightlightlightfill,
+      .3125em .3125em 0 0 $lightlightlightfill,
+      .375em .375em 0 0 $lightlightlightfill,
+      .4375em .4375em 0 0 $lightlightlightfill,
+      .5em .5em 0 0 $lightlightlightfill,
+      .5625em .5625em 0 0 $lightlightlightfill,
+      .625em .625em 0 0 $lightlightlightfill,
+      .6875em .6875em 0 0 $lightlightlightfill,
+      .75em .75em 0 0 $lightlightlightfill,
+      .8125em .8125em 0 0 $lightlightlightfill,
+      .875em .875em 0 0 $lightlightlightfill,
+      .9375em .9375em 0 0 $lightlightlightfill,
+      1em 1em 0 0 $lightlightlightfill,
+      //lines for that shit
+      0 0 0 .25em $line,
+      .0625em .0625em 0 .25em $line,
+      .125em .125em 0 .25em $line,
+      .1875em 1875em 0 .25em $line,
+      .25em .25em 0 .25em $line,
+      .3125em .3125em 0 .25em $line,
+      .375em .375em 0 .25em $line,
+      .4375em .4375em 0 .25em $line,
+      .5em .5em 0 .25em $line,
+      .5625em .5625em 0 .25em $line,
+      .625em .625em 0 .25em $line,
+      .6875em .6875em 0 .25em $line,
+      .75em .75em 0 .25em $line,
+      .8125em .8125em 0 .25em $line,
+      .875em .875em 0 .25em $line,
+
+      //the shit that wraps what makes the flush work
+      //TODO MAKE THAT FUCK SHADY
+      1.25em 1.25em 0 -.125em $lightlightfill,
+      1.3125em 1.3125em 0 -.125em $lightlightfill,
+      1.375em 1.375em 0 -.125em $lightlightfill,
+      1.4375em 1.4375em 0 -.125em $lightlightfill,
+      1.5em 1.5em 0 -.125em $wyt,
+      1.5625em 1.5625em 0 -.125em $wyt,
+      1.625em 1.625em 0 -.125em $wyt,
+      1.6875em 1.6875em 0 -.125em $wyt,
+      1.75em 1.75em 0 -.125em $wyt,
+      1.8125em 1.8125em 0 -.125em $wyt,
+      1.875em 1.875em 0 -.125em $wyt,
+      1.9375em 1.9375em 0 -.125em $wyt,
+      2em 2em 0 -.125em $wyt,
+      2.0625em 2.0625em 0 -.125em $wyt,
+      2.125em 2.125em 0 -.125em $wyt,
+      2.1875em 2.1875em 0 -.125em $wyt,
+      2.25em 2.25em 0 -.125em $wyt,
+      2.3125em 2.3125em 0 -.125em $wyt,
+      2.3125em 2.3125em 0 -.125em $wyt,
+      2.375em 2.375em 0 -.125em $wyt,
+      2.4375em 2.4375em 0 -.125em $wyt,
+      2.5em 2.5em 0 -.125em $wyt,
+      2.5625em 2.5625em 0 -.125em $wyt,
+      2.625em 2.625em 0 -.125em $wyt,
+      2.6875em 2.6875em 0 -.125em $wyt,
+      2.75em 2.75em 0 -.125em $wyt,
+      2.8125em 2.8125em 0 -.125em $wyt,
+      2.875em 2.875em 0 -.125em $wyt,
+      2.9375em 2.9375em 0 -.125em $wyt,
+      3em 3em 0 -.125em $wyt,
+      3.0625em 3.0625em 0 -.125em $wyt,
+      3.125em 3.125em 0 -.125em $wyt,
+      3.1875em 3.1875em 0 -.125em $wyt,
+      3.25em 3.25em 0 -.125em $wyt,
+      3.3125em 3.3125em 0 -.125em $wyt,
+      3.3125em 3.3125em 0 -.125em $wyt,
+      3.375em 3.375em 0 -.125em $wyt,
+      3.4375em 3.4375em 0 -.125em $wyt,
+      3.5em 3.5em 0 -.125em $wyt,
+      3.5625em 3.5625em 0 -.125em $wyt,
+      3.625em 3.625em 0 -.125em $wyt,
+      3.6875em 3.6875em 0 -.125em $wyt,
+      3.75em 3.75em 0 -.125em $wyt,
+      3.8125em 3.8125em 0 -.125em $wyt,
+      3.875em 3.875em 0 -.125em $wyt,
+      3.9375em 3.9375em 0 -.125em $wyt,
+      4em 4em 0 -.125em $wyt,
+      4.0625em 4.0625em 0 -.125em $wyt,
+      4.125em 4.125em 0 -.125em $wyt,
+      4.1875em 4.1875em 0 -.125em $wyt,
+      4.25em 4.25em 0 -.125em $wyt,
+      4.3125em 4.3125em 0 -.125em $wyt,
+      4.3125em 4.3125em 0 -.125em $wyt,
+      4.375em 4.375em 0 -.125em $wyt,
+      4.4375em 4.4375em 0 -.125em $wyt,
+      4.5em 4.5em 0 -.125em $wyt,
+      4.5625em 4.5625em 0 -.125em $wyt,
+      4.625em 4.625em 0 -.125em $wyt,
+      4.6875em 4.6875em 0 -.125em $wyt,
+      4.75em 4.75em 0 -.125em $wyt,
+      4.8125em 4.8125em 0 -.125em $wyt,
+      4.875em 4.875em 0 -.125em $lightlightlightfill,
+      4.9375em 4.9375em 0 -.125em $lightlightlightfill,
+
+      //lines
+      1.3125em 1.3125em 0 .125em $line,
+      1.375em 1.375em 0 .125em $line,
+      1.4375em 1.4375em 0 .125em $line,
+      1.5em 1.5em 0 .125em $line,
+      1.5625em 1.5625em 0 .125em $line,
+      1.625em 1.625em 0 .125em $line,
+      1.6875em 1.6875em 0 .125em $line,
+      1.75em 1.75em 0 .125em $line,
+      1.8125em 1.8125em 0 .125em $line,
+      1.875em 1.875em 0 .125em $line,
+      1.9375em 1.9375em 0 .125em $line,
+      2em 2em 0 .125em $line,
+      2.0625em 2.0625em 0 .125em $line,
+      2.125em 2.125em 0 .125em $line,
+      2.1875em 2.1875em 0 .125em $line,
+      2.25em 2.25em 0 .125em $line,
+      2.3125em 2.3125em 0 .125em $line,
+      2.3125em 2.3125em 0 .125em $line,
+      2.375em 2.375em 0 .125em $line,
+      2.4375em 2.4375em 0 .125em $line,
+      2.5em 2.5em 0 .125em $line,
+      2.5625em 2.5625em 0 .125em $line,
+      2.625em 2.625em 0 .125em $line,
+      2.6875em 2.6875em 0 .125em $line,
+      2.75em 2.75em 0 .125em $line,
+      2.8125em 2.8125em 0 .125em $line,
+      2.875em 2.875em 0 .125em $line,
+      2.9375em 2.9375em 0 .125em $line,
+      3em 3em 0 .125em $line,
+      3.0625em 3.0625em 0 .125em $line,
+      3.125em 3.125em 0 .125em $line,
+      3.1875em 3.1875em 0 .125em $line,
+      3.25em 3.25em 0 .125em $line,
+      3.3125em 3.3125em 0 .125em $line,
+      3.3125em 3.3125em 0 .125em $line,
+      3.375em 3.375em 0 .125em $line,
+      3.4375em 3.4375em 0 .125em $line,
+      3.5em 3.5em 0 .125em $line,
+      3.5625em 3.5625em 0 .125em $line,
+      3.625em 3.625em 0 .125em $line,
+      3.6875em 3.6875em 0 .125em $line,
+      3.75em 3.75em 0 .125em $line,
+      3.8125em 3.8125em 0 .125em $line,
+      3.875em 3.875em 0 .125em $line,
+      3.9375em 3.9375em 0 .125em $line,
+      4em 4em 0 .125em $line,
+      4.0625em 4.0625em 0 .125em $line,
+      4.125em 4.125em 0 .125em $line,
+      4.1875em 4.1875em 0 .125em $line,
+      4.25em 4.25em 0 .125em $line,
+      4.3125em 4.3125em 0 .125em $line,
+      4.3125em 4.3125em 0 .125em $line,
+      4.375em 4.375em 0 .125em $line,
+      4.4375em 4.4375em 0 .125em $line,
+      4.5em 4.5em 0 .125em $line,
+      4.5625em 4.5625em 0 .125em $line,
+      4.625em 4.625em 0 .125em $line,
+      4.6875em 4.6875em 0 .125em $line,
+      4.75em 4.75em 0 .125em $line,
+      4.8125em 4.8125em 0 .125em $line,
+      4.75em 5.125em 0 -.125em $line,
+      5em 5.125em 0 -.125em $line,
+
+      //flush
+      1.25em 2.5em 0 -.5em $lightfill,
+      1.3125em 2.5em 0 -.5em $lightfill,
+      1.5em 2.5em 0 -.25em $fill,
+      1.5625em 2.5625em 0 -.25em $fill,
+      1.625em 2.625em 0 -.25em $fill,
+      1.5em 2.625em 0 0em $line
+    ;
+
+  }
+
+  &:after{
+    transform: skewX(10deg) translateZ(0);
+    width: 1em;
+    height: 1em;
+    // mix-blend-mode: overlay;
+    // filter: contrast(100);
+    border-radius: .125em;//looks cooler as diamonds turns out
+    background: transparent;
+    top: 7em;
+    left: 7em;
+    box-shadow:
+       -7em -2em 0 -.3125em transparent,
+       -5em -6em 0 -.25em transparent,
+       -4em -4em 0 -.25em transparent,
+       -4em -2em 0 0 transparent,
+       -3em 1em 0 -.3125em transparent,
+       -2em -2em 0 0 transparent,
+       -2em .5em 0 0 transparent,
+       -0em -4em 0 -.25em transparent,
+      ;
+      animation: pissmagic 7s linear 0s infinite;
+    // outline: 1px solid;
+  }
+
+
+
+  // &,
+  // &>*{
+  //   @include before-and-after(absolute,both);
+  // }
+
+  // .mouth{
+  //   width:
+  // }
+}
+
+@keyframes pissmagic{
+  0%{
+    top: 7em;
+    left: 7em;
+    background: rgba($piss,0);
+    box-shadow:
+       -7em -2em 0 -.3125em rgba($piss,0),
+       -5em -6em 0 -.25em rgba($piss,0),
+       -4em -4em 0 -.25em rgba($piss,0),
+       -4em -2em 0 0 rgba($piss,0),
+       -3em 1em 0 -.3125em rgba($piss,0),
+       -2em -2em 0 0 rgba($piss,0),
+       -2em .5em 0 0 rgba($piss,0),
+       -0em -4em 0 -.25em rgba($piss,0)
+      ;
+  }
+
+  25%{
+    top: 6em;
+    left: 6em;
+    background: rgba($piss,0);
+    box-shadow:
+       -7.5em -2.5em 0 -.3125em rgba(mix($piss,$shinay,50%),1),
+       -5em -6em 0 -.25em rgba(mix($piss,$shinay,50%),1),
+       -5em -5em 0 -.25em rgba(mix($piss,$shinay,50%),1),
+       -4em -2em 0 0 rgba($piss,0),
+       -3em 1em 0 -.3125em rgba($piss,0),
+       -2em -2em 0 0 rgba($piss,0),
+       -2em .5em 0 0 rgba($piss,0),
+       -0em -4em 0 -.25em rgba($piss,0)
+      ;
+  }
+
+  50%{
+    top: 5em;
+    left: 5em;
+    background: rgba($piss,0);
+    box-shadow:
+       -8em -3em 0 -.3125em rgba($piss,0),
+       -5em -6em 0 -.25em rgba($piss,0),
+       -6em -6em 0 -.25em rgba($shinay,1),
+       -4em -2em 0 0 rgba($shinay,1),
+       -3em 1em 0 -.3125em rgba($shinay,1),
+       -2em -2em 0 0 rgba($shinay,1),
+       -2em .5em 0 0 rgba($piss,0),
+       -0em -4em 0 -.25em rgba($piss,0)
+      ;
+  }
+
+  75%{
+    top: 4em;
+    left: 4em;
+    background: rgba(mix($piss,$shinay,50%),1);
+    box-shadow:
+       -8em -3em 0 -.3125em rgba($piss,0),
+       -5em -6em 0 -.25em rgba($piss,0),
+       -6em -6em 0 -.25em rgba($piss,0),
+       -4em -2em 0 0 rgba($piss,0),
+       -3em 1em 0 -.3125em rgba($piss,0),
+       -2.5em -2.5em 0 0 rgba(mix($piss,$shinay,50%),1),
+       -3em -.5em 0 0 rgba(mix($piss,$shinay,50%),1),
+       -0em -4em 0 -.25em rgba(mix($piss,$shinay,50%),1)
+      ;
+  }
+
+  100%{
+    top: 3em;
+    left: 3em;
+    background: rgba($piss,0);
+    box-shadow:
+       -8em -3em 0 -.3125em rgba($piss,0),
+       -5em -6em 0 -.25em rgba($piss,0),
+       -6em -6em 0 -.25em rgba($piss,0),
+       -4em -2em 0 0 rgba($piss,0),
+       -3em 1em 0 -.3125em rgba($piss,0),
+       -3em -3em 0 0 rgba($piss,0),
+       -4em -1.5em 0 0 rgba($piss,0),
+       -0em -4em 0 -.25em rgba($piss,0)
+      ;
+  }
+}
+
+//this one div shit backfired at me i need to include all the bullshit of this for the animation to work 2 days ago me should say sorry
+@keyframes glowpiss{
+  0%{
+    background: $piss;
+    box-shadow:
+      // inside toilet
+      inset 0 0 0 2em $wyt,
+      inset .25em .25em 0 2em $lightlightfill,
+      inset .4375em .4375em 0 2em $line,
+      inset 2.5em 1.75em 0 1em $fill,
+      inset 1.75em .25em 0 3em $lightfill,
+
+      //the animated part
+      inset 1.75em .25em .5em 3.125em $dedpiss,
+
+      //cover
+      .25em .0625em 0 0 $lightlightlightfill,
+      .25em .25em 0 -.125em $lightlightlightfill,
+      .25em .3125em 0 -.125em $lightlightlightfill,
+
+      0 0 0 .25em $line,
+      .125em .125em 0 .25em $line,
+
+      //mouth
+      .625em 0em 0 0 $lightlightfill,
+      // .625em -.25em 0 0 $lightlightfill,
+      1em -1.6875em 0 0 $wyt,
+      1.0625em -1.875em 0 0 $wyt,
+      1.125em -1.75em 0 0 $wyt,
+      1.1875em -1.625em 0 0 $wyt,
+      1.25em -1.5em 0 0 $wyt,
+      1.3215em -1.375em 0 0 $wyt,
+      1.375em -1.25em 0 0 $wyt,
+      1.4375em -1.125em 0 0 $wyt,
+      1.5em -1em 0 0 $wyt,
+      1.5625em -.875em 0 0 $wyt,
+      1.625em -.75em 0 0 $wyt,
+
+      1.375em .25em 0 0 $wyt,
+      1.4375em .375em 0 0 $wyt,
+      1.5em .5em 0 0 $wyt,
+      1.5625em .625em 0 0 $wyt,
+      1.625em .75em 0 0 $wyt,
+
+      //lineart mouth
+      1.5em 1em 0 0 $line,
+      .75em -.75em 0 0 $line,
+
+      //LINE FUCK
+      .75em -1.9375em 0 0 $line,
+      .9375em -2.125em 0 0 $line,
+      1.1875em -2em 0 0 $line,
+      1.25em -1.875em 0 0 $line,
+      1.3125em -1.75em 0 0 $line,
+      1.375em -1.625em 0 0 $line,
+      1.4375em -1.5em 0 0 $line,
+      1.5em -1.375em 0 0 $line,
+      1.5625em -1.25em 0 0 $line,
+      1.625em -1.125em 0 0 $line,
+      1.6875em -1em 0 0 $line,
+      1.75em -.875em 0 0 $line,
+
+      // lower base
+      3.0625em 1.125em 0 -1.25em $lightlightlightfill,
+      3.125em 1.1875em 0 -1.25em $lightlightlightfill,
+      3.1875em 1.25em 0 -1.25em $lightlightlightfill,
+      3.25em 1.3125em 0 -1.25em $lightlightlightfill,
+      3.3125em 1.375em 0 -1.25em $lightlightlightfill,
+      3.375em 1.4375em 0 -1.25em $lightlightlightfill,
+      3.4375em 1.5em 0 -1.25em $lightlightlightfill,
+      3.5em 1.5625em 0 -1.25em $lightlightlightfill,
+      3.5625em 1.625em 0 -1.25em $lightlightlightfill,
+      3.625em 1.6875em 0 -1.25em $lightlightlightfill,
+      3.6875em 1.75em 0 -1.25em $lightlightlightfill,
+      3.75em 1.8125em 0 -1.25em $lightlightlightfill,
+      3.8125em 1.875em 0 -1.25em $lightlightlightfill,
+      3.875em 1.9375em 0 -1.25em $lightlightlightfill,
+      3.9375em 2em 0 -1.25em $lightlightlightfill,
+      4em 2.0625em 0 -1.25em $lightlightlightfill,
+      4.0625em 2.125em 0 -1.25em $lightlightlightfill,
+      4.125em 2.1875em 0 -1.25em $lightlightlightfill,
+      4.1875em 2.25em 0 -1.25em $lightlightlightfill,
+      4.25em 2.3125em 0 -1.25em $lightlightlightfill,
+      4.3125em 2.375em 0 -1.25em $lightlightlightfill,
+      4.375em 2.4375em 0 -1.25em $lightlightlightfill,
+      4.4375em 2.5em 0 -1.25em $lightlightlightfill,
+      4.5em 2.5625em 0 -1.25em $lightlightlightfill,
+      4.5625em 2.625em 0 -1.25em $lightlightlightfill,
+      4.625em 2.6875em 0 -1.25em $lightlightlightfill,
+      4.6875em 2.75em 0 -1.25em $lightlightlightfill,
+
+      //shitstorm of a lineart - LOWER BASE
+      4.875em 2.875em 0 -1.25em $line,
+      4.625em 2.875em 0 -1.125em $line,
+      3.0625em .875em 0 -1.25em $line,
+      3.125em 1em 0 -1.25em $line,
+      3.1875em 1.0625em 0 -1.25em $line,
+      3.25em 1.125em 0 -1.25em $line,
+      3.3125em 1.1875em 0 -1.25em $line,
+      3.375em 1.25em 0 -1.25em $line,
+      3.4375em 1.3125em 0 -1.25em $line,
+      3.5em 1.375em 0 -1.25em $line,
+      3.5625em 1.4375em 0 -1.25em $line,
+      3.625em 1.5em 0 -1.25em $line,
+      3.6875em 1.5625em 0 -1.25em $line,
+      3.75em 1.625em 0 -1.25em $line,
+      3.8125em 1.6875em 0 -1.25em $line,
+      3.875em 1.75em 0 -1.25em $line,
+      3.9375em 1.8125em 0 -1.25em $line,
+      4em 1.875em 0 -1.25em $line,
+      4.0625em 1.9375em 0 -1.25em $line,
+      4.125em 2em 0 -1.25em $line,
+      4.1875em 2.0625em 0 -1.25em $line,
+      4.25em 2.125em 0 -1.25em $line,
+      4.3125em 2.1875em 0 -1.25em $line,
+      4.375em 2.25em 0 -1.25em $line,
+      4.4375em 2.3125em 0 -1.25em $line,
+      4.5em 2.375em 0 -1.25em $line,
+      4.5625em 2.4375em 0 -1.25em $line,
+      4.625em 2.5em 0 -1.25em $line,
+      4.6875em 2.5625em 0 -1.25em $line,
+      4.75em 2.625em 0 -1.25em $line,
+      4.8125em 2.6875em 0 -1.25em $line,
+      4.875em 2.75em 0 -1.25em $line,
+
+      //drop shadow
+      4.75em 2.625em 0 -.5em rgba($line,.25),
+      4.75em 2.625em 0 .25em rgba($line,.25),
+      4.75em 2.625em 0 1em rgba($line,.25)
+
+    ;
+
+  }
+
+  50%{
+    background: $shinay;
+    box-shadow:
+      // inside toilet
+      inset 0 0 0 2em $wyt,
+      inset .25em .25em 0 2em $lightlightfill,
+      inset .4375em .4375em 0 2em $line,
+      inset 2.5em 1.75em 0 1em $fill,
+      inset 1.75em .25em 0 3em $lightfill,
+
+      //the animated part
+      inset 1.75em .25em .5em 3.125em $wyt,
+
+      //cover
+      .25em .0625em 0 0 $lightlightlightfill,
+      .25em .25em 0 -.125em $lightlightlightfill,
+      .25em .3125em 0 -.125em $lightlightlightfill,
+
+      0 0 0 .25em $line,
+      .125em .125em 0 .25em $line,
+
+      //mouth
+      .625em 0em 0 0 $lightlightfill,
+      // .625em -.25em 0 0 $lightlightfill,
+      1em -1.6875em 0 0 $wyt,
+      1.0625em -1.875em 0 0 $wyt,
+      1.125em -1.75em 0 0 $wyt,
+      1.1875em -1.625em 0 0 $wyt,
+      1.25em -1.5em 0 0 $wyt,
+      1.3215em -1.375em 0 0 $wyt,
+      1.375em -1.25em 0 0 $wyt,
+      1.4375em -1.125em 0 0 $wyt,
+      1.5em -1em 0 0 $wyt,
+      1.5625em -.875em 0 0 $wyt,
+      1.625em -.75em 0 0 $wyt,
+
+      1.375em .25em 0 0 $wyt,
+      1.4375em .375em 0 0 $wyt,
+      1.5em .5em 0 0 $wyt,
+      1.5625em .625em 0 0 $wyt,
+      1.625em .75em 0 0 $wyt,
+
+      //lineart mouth
+      1.5em 1em 0 0 $line,
+      .75em -.75em 0 0 $line,
+
+      //LINE FUCK
+      .75em -1.9375em 0 0 $line,
+      .9375em -2.125em 0 0 $line,
+      1.1875em -2em 0 0 $line,
+      1.25em -1.875em 0 0 $line,
+      1.3125em -1.75em 0 0 $line,
+      1.375em -1.625em 0 0 $line,
+      1.4375em -1.5em 0 0 $line,
+      1.5em -1.375em 0 0 $line,
+      1.5625em -1.25em 0 0 $line,
+      1.625em -1.125em 0 0 $line,
+      1.6875em -1em 0 0 $line,
+      1.75em -.875em 0 0 $line,
+
+      // lower base
+      3.0625em 1.125em 0 -1.25em $lightlightlightfill,
+      3.125em 1.1875em 0 -1.25em $lightlightlightfill,
+      3.1875em 1.25em 0 -1.25em $lightlightlightfill,
+      3.25em 1.3125em 0 -1.25em $lightlightlightfill,
+      3.3125em 1.375em 0 -1.25em $lightlightlightfill,
+      3.375em 1.4375em 0 -1.25em $lightlightlightfill,
+      3.4375em 1.5em 0 -1.25em $lightlightlightfill,
+      3.5em 1.5625em 0 -1.25em $lightlightlightfill,
+      3.5625em 1.625em 0 -1.25em $lightlightlightfill,
+      3.625em 1.6875em 0 -1.25em $lightlightlightfill,
+      3.6875em 1.75em 0 -1.25em $lightlightlightfill,
+      3.75em 1.8125em 0 -1.25em $lightlightlightfill,
+      3.8125em 1.875em 0 -1.25em $lightlightlightfill,
+      3.875em 1.9375em 0 -1.25em $lightlightlightfill,
+      3.9375em 2em 0 -1.25em $lightlightlightfill,
+      4em 2.0625em 0 -1.25em $lightlightlightfill,
+      4.0625em 2.125em 0 -1.25em $lightlightlightfill,
+      4.125em 2.1875em 0 -1.25em $lightlightlightfill,
+      4.1875em 2.25em 0 -1.25em $lightlightlightfill,
+      4.25em 2.3125em 0 -1.25em $lightlightlightfill,
+      4.3125em 2.375em 0 -1.25em $lightlightlightfill,
+      4.375em 2.4375em 0 -1.25em $lightlightlightfill,
+      4.4375em 2.5em 0 -1.25em $lightlightlightfill,
+      4.5em 2.5625em 0 -1.25em $lightlightlightfill,
+      4.5625em 2.625em 0 -1.25em $lightlightlightfill,
+      4.625em 2.6875em 0 -1.25em $lightlightlightfill,
+      4.6875em 2.75em 0 -1.25em $lightlightlightfill,
+
+      //shitstorm of a lineart - LOWER BASE
+      4.875em 2.875em 0 -1.25em $line,
+      4.625em 2.875em 0 -1.125em $line,
+      3.0625em .875em 0 -1.25em $line,
+      3.125em 1em 0 -1.25em $line,
+      3.1875em 1.0625em 0 -1.25em $line,
+      3.25em 1.125em 0 -1.25em $line,
+      3.3125em 1.1875em 0 -1.25em $line,
+      3.375em 1.25em 0 -1.25em $line,
+      3.4375em 1.3125em 0 -1.25em $line,
+      3.5em 1.375em 0 -1.25em $line,
+      3.5625em 1.4375em 0 -1.25em $line,
+      3.625em 1.5em 0 -1.25em $line,
+      3.6875em 1.5625em 0 -1.25em $line,
+      3.75em 1.625em 0 -1.25em $line,
+      3.8125em 1.6875em 0 -1.25em $line,
+      3.875em 1.75em 0 -1.25em $line,
+      3.9375em 1.8125em 0 -1.25em $line,
+      4em 1.875em 0 -1.25em $line,
+      4.0625em 1.9375em 0 -1.25em $line,
+      4.125em 2em 0 -1.25em $line,
+      4.1875em 2.0625em 0 -1.25em $line,
+      4.25em 2.125em 0 -1.25em $line,
+      4.3125em 2.1875em 0 -1.25em $line,
+      4.375em 2.25em 0 -1.25em $line,
+      4.4375em 2.3125em 0 -1.25em $line,
+      4.5em 2.375em 0 -1.25em $line,
+      4.5625em 2.4375em 0 -1.25em $line,
+      4.625em 2.5em 0 -1.25em $line,
+      4.6875em 2.5625em 0 -1.25em $line,
+      4.75em 2.625em 0 -1.25em $line,
+      4.8125em 2.6875em 0 -1.25em $line,
+      4.875em 2.75em 0 -1.25em $line,
+
+      //drop shadow
+      4.75em 2.625em 0 -.5em rgba($line,.25),
+      4.75em 2.625em 0 .25em rgba($line,.25),
+      4.75em 2.625em 0 1em rgba($line,.25)
+
+    ;
+
+  }
+
+  100%{
+    background: $piss;
+    box-shadow:
+      // inside toilet
+      inset 0 0 0 2em $wyt,
+      inset .25em .25em 0 2em $lightlightfill,
+      inset .4375em .4375em 0 2em $line,
+      inset 2.5em 1.75em 0 1em $fill,
+      inset 1.75em .25em 0 3em $lightfill,
+
+      //the animated part
+      inset 1.75em .25em .5em 3.125em $dedpiss,
+
+      //cover
+      .25em .0625em 0 0 $lightlightlightfill,
+      .25em .25em 0 -.125em $lightlightlightfill,
+      .25em .3125em 0 -.125em $lightlightlightfill,
+
+      0 0 0 .25em $line,
+      .125em .125em 0 .25em $line,
+
+      //mouth
+      .625em 0em 0 0 $lightlightfill,
+      // .625em -.25em 0 0 $lightlightfill,
+      1em -1.6875em 0 0 $wyt,
+      1.0625em -1.875em 0 0 $wyt,
+      1.125em -1.75em 0 0 $wyt,
+      1.1875em -1.625em 0 0 $wyt,
+      1.25em -1.5em 0 0 $wyt,
+      1.3215em -1.375em 0 0 $wyt,
+      1.375em -1.25em 0 0 $wyt,
+      1.4375em -1.125em 0 0 $wyt,
+      1.5em -1em 0 0 $wyt,
+      1.5625em -.875em 0 0 $wyt,
+      1.625em -.75em 0 0 $wyt,
+
+      1.375em .25em 0 0 $wyt,
+      1.4375em .375em 0 0 $wyt,
+      1.5em .5em 0 0 $wyt,
+      1.5625em .625em 0 0 $wyt,
+      1.625em .75em 0 0 $wyt,
+
+      //lineart mouth
+      1.5em 1em 0 0 $line,
+      .75em -.75em 0 0 $line,
+
+      //LINE FUCK
+      .75em -1.9375em 0 0 $line,
+      .9375em -2.125em 0 0 $line,
+      1.1875em -2em 0 0 $line,
+      1.25em -1.875em 0 0 $line,
+      1.3125em -1.75em 0 0 $line,
+      1.375em -1.625em 0 0 $line,
+      1.4375em -1.5em 0 0 $line,
+      1.5em -1.375em 0 0 $line,
+      1.5625em -1.25em 0 0 $line,
+      1.625em -1.125em 0 0 $line,
+      1.6875em -1em 0 0 $line,
+      1.75em -.875em 0 0 $line,
+
+      // lower base
+      3.0625em 1.125em 0 -1.25em $lightlightlightfill,
+      3.125em 1.1875em 0 -1.25em $lightlightlightfill,
+      3.1875em 1.25em 0 -1.25em $lightlightlightfill,
+      3.25em 1.3125em 0 -1.25em $lightlightlightfill,
+      3.3125em 1.375em 0 -1.25em $lightlightlightfill,
+      3.375em 1.4375em 0 -1.25em $lightlightlightfill,
+      3.4375em 1.5em 0 -1.25em $lightlightlightfill,
+      3.5em 1.5625em 0 -1.25em $lightlightlightfill,
+      3.5625em 1.625em 0 -1.25em $lightlightlightfill,
+      3.625em 1.6875em 0 -1.25em $lightlightlightfill,
+      3.6875em 1.75em 0 -1.25em $lightlightlightfill,
+      3.75em 1.8125em 0 -1.25em $lightlightlightfill,
+      3.8125em 1.875em 0 -1.25em $lightlightlightfill,
+      3.875em 1.9375em 0 -1.25em $lightlightlightfill,
+      3.9375em 2em 0 -1.25em $lightlightlightfill,
+      4em 2.0625em 0 -1.25em $lightlightlightfill,
+      4.0625em 2.125em 0 -1.25em $lightlightlightfill,
+      4.125em 2.1875em 0 -1.25em $lightlightlightfill,
+      4.1875em 2.25em 0 -1.25em $lightlightlightfill,
+      4.25em 2.3125em 0 -1.25em $lightlightlightfill,
+      4.3125em 2.375em 0 -1.25em $lightlightlightfill,
+      4.375em 2.4375em 0 -1.25em $lightlightlightfill,
+      4.4375em 2.5em 0 -1.25em $lightlightlightfill,
+      4.5em 2.5625em 0 -1.25em $lightlightlightfill,
+      4.5625em 2.625em 0 -1.25em $lightlightlightfill,
+      4.625em 2.6875em 0 -1.25em $lightlightlightfill,
+      4.6875em 2.75em 0 -1.25em $lightlightlightfill,
+
+      //shitstorm of a lineart - LOWER BASE
+      4.875em 2.875em 0 -1.25em $line,
+      4.625em 2.875em 0 -1.125em $line,
+      3.0625em .875em 0 -1.25em $line,
+      3.125em 1em 0 -1.25em $line,
+      3.1875em 1.0625em 0 -1.25em $line,
+      3.25em 1.125em 0 -1.25em $line,
+      3.3125em 1.1875em 0 -1.25em $line,
+      3.375em 1.25em 0 -1.25em $line,
+      3.4375em 1.3125em 0 -1.25em $line,
+      3.5em 1.375em 0 -1.25em $line,
+      3.5625em 1.4375em 0 -1.25em $line,
+      3.625em 1.5em 0 -1.25em $line,
+      3.6875em 1.5625em 0 -1.25em $line,
+      3.75em 1.625em 0 -1.25em $line,
+      3.8125em 1.6875em 0 -1.25em $line,
+      3.875em 1.75em 0 -1.25em $line,
+      3.9375em 1.8125em 0 -1.25em $line,
+      4em 1.875em 0 -1.25em $line,
+      4.0625em 1.9375em 0 -1.25em $line,
+      4.125em 2em 0 -1.25em $line,
+      4.1875em 2.0625em 0 -1.25em $line,
+      4.25em 2.125em 0 -1.25em $line,
+      4.3125em 2.1875em 0 -1.25em $line,
+      4.375em 2.25em 0 -1.25em $line,
+      4.4375em 2.3125em 0 -1.25em $line,
+      4.5em 2.375em 0 -1.25em $line,
+      4.5625em 2.4375em 0 -1.25em $line,
+      4.625em 2.5em 0 -1.25em $line,
+      4.6875em 2.5625em 0 -1.25em $line,
+      4.75em 2.625em 0 -1.25em $line,
+      4.8125em 2.6875em 0 -1.25em $line,
+      4.875em 2.75em 0 -1.25em $line,
+
+      //drop shadow
+      4.75em 2.625em 0 -.5em rgba($line,.25),
+      4.75em 2.625em 0 .25em rgba($line,.25),
+      4.75em 2.625em 0 1em rgba($line,.25)
+
+    ;
+
+  }
+}
