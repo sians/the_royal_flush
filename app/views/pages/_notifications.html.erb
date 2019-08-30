@@ -1,5 +1,4 @@
 <div class="tab-container">
-  <h2>My Notifications</h2>
   <div class="my-toilets-content">
     <% if current_user.bookings.empty? %>
       <h3>You don't have any notifications.</h3>
@@ -10,9 +9,9 @@
       <% current_user.bookings.each do |booking| %>
         <div class="review-card">
           <% if booking.user_id == current_user.id %>
-              <div class="review-card-content">
+              <div class="review-card-content" style="display: flex">
                 <div style="margin-left: 30px; margin-top: 20px">
-                  <i class="fas fa-bell" style="font-size: 36px; color: #F76D9F"></i>
+                  <i class="fas fa-bell" style="font-size: 42px; color: #F76D9F"></i>
                 </div>
                 <div style="margin-left: 30px; margin-top: 15px">
                   <h5>You visited

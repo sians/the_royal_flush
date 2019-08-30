@@ -1,8 +1,8 @@
 <div class="container">
-  <%= link_to 'back', toilets_path, class: 'fine-sm-text' %>
+  <%= link_to '← Go back', toilets_path, class: 'fine-sm-text' %>
 </div>
 <div class="container details-container">
-  <ul class="icons icons-vertical">
+  <ul class="icons icons-vertical" style="margin-right: 30px">
 
     <li><i class="fas fa-book <%= 'active' if @toilet.reading_material %>"  data-toggle="tooltip" data-placement="left" title="reading material"></i></li>
     <li><i class="fas fa-image <%= 'active' if @toilet.window %>" data-toggle="tooltip" data-placement="left" title="shit with view"></i></li>
@@ -11,7 +11,7 @@
     <li><i class="fas fa-wifi <%= 'active' if @toilet.wifi %>" data-toggle="tooltip" data-placement="left" title="shit and surf"></i></li>
     <li></li>
   </ul>
-  <div class="img-container" >
+  <div class="img-container" style="margin-right: 30px">
     <%=  cl_image_tag @toilet.photo, height: 500, width: 500, crop: :fill %>
   </div>
   <div class="listing-details">
@@ -30,10 +30,13 @@
         </ul>
       </div>
     <% else %>
+    <div style="margin-top: 50px">
       <p class="fine-sm-text">This toilet doesn't have any reviews yet.</p>
+    </div>
     <% end %>
-
+    <div style="margin-top: 50px">
     <p class="toilet-description"><%= @toilet.description %></p>
+    </div>
 
     <% if @existing_booking && @existing_booking.active_booking == true  %>
       <h4>You are currently on the toilet.</h4>
@@ -96,9 +99,9 @@
     </div>
     </div>
 
-    <% @toilet.reviews.each do |review| %>
+    <% @toilet.reviews.sample(3).each do |review| %>
       <div class="review-card">
-        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
+        <%= image_tag review.booking.user.avatar, class:"avatar-large" %>
         <div class="review-card-content">
           <div class="review-card-headings">
             <h3><%= review.booking.user.full_name %></h3>
@@ -110,6 +113,9 @@
         </div>
       </div>
     <% end %>
+    <div class="btn-submit" style="margin: auto; margin-top: 25px">
+      <p style="margin:auto">See more...</p>
+    </div>
   <% end %>
 
 </div>
@@ -117,7 +123,7 @@
 <div class="container">
   <h2>Other toilets nearby:</h2>
   <div class="row">
-    <% @toilets.sample(6).each do |toilet| %>
+    <% @toilets.order('created_at DESC').sample(6).each do |toilet| %>
       <div class="col-12 col-lg-4">
         <%= link_to toilet_path(toilet) do %>
           <div class="card toilet-card">
