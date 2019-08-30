@@ -1,4 +1,3 @@
-github.com:sians/the_royal_flush.git
 puts 'cleaning data......'
 Review.destroy_all
 Booking.destroy_all
