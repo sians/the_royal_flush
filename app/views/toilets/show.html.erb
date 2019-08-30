@@ -17,7 +17,24 @@
   <div class="listing-details">
     <h2><%= @toilet.name%></h2>
     <div class="stars"></div>
+
+    <% if @toilet.avg_stars %>
+      <div class="stars">
+        <ul class="stars stars-lg">
+          <% @toilet.avg_stars.times do |star| %>
+            <li><i class="fas fa-star"></i></li>
+          <% end %>
+          <% (5 - @toilet.avg_stars).times do |star| %>
+            <li><i class="fas fa-star grey"></i></li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <p class="fine-sm-text">This toilet doesn't have any reviews yet.</p>
+    <% end %>
+
     <p class="toilet-description"><%= @toilet.description %></p>
+
     <% if @existing_booking && @existing_booking.active_booking == true  %>
       <h4>You are currently on the toilet.</h4>
         <%= simple_form_for [@toilet, @existing_booking], method: :patch do |f| %>
@@ -69,10 +86,12 @@
   <% else %>
     <div class="stars">
       <ul class="stars stars-lg">
-        <li><i class="fas fa-star"></i></li>
-        <li><i class="fas fa-star"></i></li>
-        <li><i class="fas fa-star"></i></li>
-        <li><i class="fas fa-star"></i></li>
+        <% @toilet.avg_stars.times do |star| %>
+          <li><i class="fas fa-star"></i></li>
+        <% end %>
+        <% (5 - @toilet.avg_stars).times do |star| %>
+          <li><i class="fas fa-star grey"></i></li>
+        <% end %>
       </ul>
     </div>
     </div>
@@ -105,12 +124,22 @@
             <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
             <div class="card-content">
               <h6><%=h truncate(toilet.name, length:27) %></h6>
-              <ul class="stars stars-sm">
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="fas fa-star"></i></li>
-              </ul>
+              <% if toilet.avg_stars %>
+                <ul class="stars stars-sm">
+                  <% toilet.avg_stars.times do |star| %>
+                    <li><i class="fas fa-star"></i></li>
+                  <% end %>
+                  <% (5 - toilet.avg_stars).times do |star| %>
+                    <li><i class="fas fa-star grey"></i></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                <ul class="stars stars-sm">
+                  <% 5.times do |star| %>
+                    <li><i class="fas fa-star grey"></i></li>
+                  <% end %>
+                </ul>
+              <% end %>
             </div>
           </div>
         <% end %>
