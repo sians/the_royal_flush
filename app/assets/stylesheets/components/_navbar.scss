@@ -35,3 +35,14 @@ ul.navbar-nav li.nav-item a.nav-link {
   width: 250px;
 }
 
+.logo {
+  display: flex;
+  margin-left: 15px;
+  text-align: center;
+  color: white;
+
+  h4 {
+  align-self: flex-end;
+  margin-left: 10px;
+  }
+}
