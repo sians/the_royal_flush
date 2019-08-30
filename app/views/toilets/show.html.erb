@@ -98,7 +98,7 @@
 
     <% @toilet.reviews.each do |review| %>
       <div class="review-card">
-        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
+       <%= image_tag review.booking.user.avatar, class:"avatar-large" %>
         <div class="review-card-content">
           <div class="review-card-headings">
             <h3><%= review.booking.user.full_name %></h3>
