@@ -33,22 +33,22 @@
               <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
               <div class="card-content">
                 <h6><%=h truncate(toilet.name, length: 27) %></h6>
-                <% if toilet.avg_stars %>
-                  <ul class="stars stars-sm">
-                    <% toilet.avg_stars.times do |star| %>
-                      <li><i class="fas fa-star"></i></li>
-                    <% end %>
-                    <% (5 - toilet.avg_stars).times do |star| %>
-                      <li><i class="fas fa-star grey"></i></li>
-                    <% end %>
-                  </ul>
-                <% else %>
-                  <ul class="stars stars-sm">
-                    <% 5.times do |star| %>
-                      <li><i class="fas fa-star grey"></i></li>
-                    <% end %>
-                  </ul>
-                <% end %>
+                  <% if toilet.avg_stars.present? %>
+                    <ul class="stars stars-sm">
+                      <% toilet.avg_stars.times do |star| %>
+                        <li><i class="fas fa-star"></i></li>
+                      <% end %>
+                      <% (5 - toilet.avg_stars).times do |star| %>
+                        <li><i class="fas fa-star grey"></i></li>
+                      <% end %>
+                    </ul>
+                  <% else %>
+                    <ul class="stars stars-sm">
+                      <% 5.times do |star| %>
+                        <li><i class="fas fa-star grey"></i></li>
+                      <% end %>
+                    </ul>
+                  <% end %>
               </div>
             </div>
           <% end %>
@@ -104,6 +104,7 @@
       </div>
     </div>
   </div>
+</div>
   </div>
 
 </div>
