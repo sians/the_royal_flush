@@ -1,0 +1,11 @@
+
+
+<%= form_tag toilets_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control address-input",
+    style: "width: 75%; margin-bottom: 30px"
+  %>
+  <%= submit_tag "Find a loo!", class: "btn-submit" %>
+<% end %>
+
