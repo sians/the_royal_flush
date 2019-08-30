@@ -7,19 +7,33 @@
 }
 
 .tab-container {
-  padding-top: 30px;
+  padding-top: 60px;
 }
 
 ul.nav-tabs {
   list-style: none;
   padding: 0px;
   margin: 0px;
+  border-bottom: 1px solid #f4c36c;
 }
 
 ul.nav-tabs li {
   display: inline-block;
+  border-bottom: 1px solid #f4c36c;
+
 }
 
 ul.nav-tabs li:hover {
-  border: none;
+  cursor: pointer;
+  background-color: rgba(244, 195, 108, 0.2);
+}
+
+.past-bookings-content {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.active-bookings-content {
+  text-align: left;
+  margin-top: 40px;
 }
