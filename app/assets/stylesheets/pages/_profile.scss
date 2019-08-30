@@ -7,9 +7,9 @@
   margin: 40px;
 }
 
-.tab-container {
-  padding-top: 60px;
-}
+// .tab-container {
+//   padding-top: 30px;
+// }
 
 ul.nav-tabs {
   list-style: none;
@@ -39,6 +39,12 @@ ul.nav-tabs li:hover {
   margin-top: 40px;
 }
 
+
+.notification-heading {
+  text-align: left;
+  margin-top: 40px;
+}
+
 .in-use {
   border-radius: 3px;
   background-color: #C2252D;
@@ -52,3 +58,4 @@ ul.nav-tabs li:hover {
   color: white;
   text-align: center;
 }
+
