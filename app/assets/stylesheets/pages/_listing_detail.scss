@@ -20,8 +20,8 @@
 
 i {
     color: #E5E5E5;
-    font-size: 30px;
-    margin-right: 10px;
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 .availability {
@@ -38,4 +38,12 @@ i.not-available {
 
 i.active {
   color: #536761;
+}
+
+.margin-top {
+  margin-top: 9px;
+}
+
+  .stars li i {
+  color: #f4c36c;
 }

@@ -10,9 +10,11 @@ class PagesController < ApplicationController
 
   def profile
     @toilets = Toilet.all.where(owner_id: current_user.id)
+    current_user.bookings.each do |booking|
+      @active_booking = booking if booking.active_booking
+    end
   end
 
   private
-
 
 end
