@@ -5,7 +5,7 @@
     </div>
 
     <div class="card-user-bio">
-      <h2>Hi, I'm <%= current_user.full_name.capitalize %></h2>
+      <h2>Hi, I'm <%= current_user.full_name %></h2>
       <p><%= current_user.bio %></p>
       <p class="shitting-since"> Shitting since <%= current_user.created_at.to_date %></p>
     </div>
