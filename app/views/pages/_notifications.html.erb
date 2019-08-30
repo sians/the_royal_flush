@@ -15,11 +15,12 @@
                   <i class="fas fa-bell" style="font-size: 36px; color: #F76D9F"></i>
                 </div>
                 <div style="margin-left: 30px; margin-top: 15px">
-                  <h5>You visited <%= booking.toilet.name %></h5>
-                  <div style="display: flex">
-                    <p style="margin-right: 5px">How was it?</p>
-                    <p><a href="" style="color: #7B7B7B">Add a review</a></p>
-                  </div>
+                  <h5>You visited
+                    <%= link_to toilet_path(booking.toilet) do %>
+                      <%= booking.toilet.name %>
+                    <% end %>
+                  </h5>
+
                 </div>
               </div>
           <% else %>
