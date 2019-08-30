@@ -4,6 +4,11 @@
     <div class="avatar-user">
     <%= image_tag current_user.avatar, class:"avatar-large" %>
     </div>
+    <% else %>
+    <div class="avatar-user">
+      <%= image_tag ("toilet-paper-icon.png") %>
+    </div>
+
     <% end %>
 
     <div class="card-user-bio">
