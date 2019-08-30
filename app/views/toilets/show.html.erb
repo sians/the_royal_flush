@@ -104,7 +104,7 @@
           <div class="card toilet-card">
             <div class="toilet-img" style="background-image: url(<%= photo_or_placeholder(toilet) %>)"></div>
             <div class="card-content">
-              <h5><%= toilet.name %></h5>
+              <h6><%=h truncate(toilet.name, length:27) %></h6>
               <ul class="stars stars-sm">
                 <li><i class="fas fa-star"></i></li>
                 <li><i class="fas fa-star"></i></li>
@@ -118,5 +118,6 @@
     <% end %>
 
   </div>
+</div>
 </div>
 
