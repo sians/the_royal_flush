@@ -25,7 +25,7 @@
           <div class="my-booking-card">
             <%= cl_image_tag booking.toilet.photo, height: 100, width: 200, crop: :fill %>
             <div class="my-booking-card-details">
-              <p>You visited <span class="has-text-bold"><%= booking.toilet.name %></span></p>
+
               <% year = booking.start_time.year %>
               <% month = booking.start_time.month %>
               <% day = booking.start_time.day %>
@@ -36,7 +36,6 @@
               <%= link_to toilet_path(booking.toilet) do %>
                 <p>You visited <span class="has-text-bold"><%= booking.toilet.name %></span></p>
               <% end %>
-              <p class="fine-sm-text">on <%= booking.created_at.to_date %></p>
               <% if booking.review.present? %>
                 <ul class="stars stars-sm">
                   <% booking.review.stars.times do |star| %>
