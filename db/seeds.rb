@@ -6,18 +6,18 @@ User.destroy_all
 
 
 puts "Creating users .........."
-User.create(email: "1234@gmail.com", password: "Password", full_name: "Mike Hard", bio: "When i'm not shitting i like to eat. My life is a circle, and i'm the compass")
-User.create(email: "JP@gmail.com", password: "Password", full_name: "Jane Peas", bio: "Some think i'm part of the black eyed peas. I'm not, but still I love to pee")
-User.create(email: "jonsnow@gmail.com", password: "Password", full_name: "Jon Snow", bio: "Before you say anything... I've heard that joke before. And no, winter is not coming.")
-User.create(email: "emily@gmail.com", password: "Password", full_name: "Emily Rata", bio: "When i push too hard i get as hot as my role-model. Unfortunately only in my stomach")
-User.create(email: "ipfreely@gmail.com", password: "Password", full_name: "IP Man", bio: "My name is Man. Ip Man")
-User.create(email: "man-ur@gmail.com", password: "Password", full_name: "Manu el Neuer", bio: "People say my name is funny. I prefere jokes about Vegans")
-User.create(email: "DTM@gmail.com", password: "Password", full_name: "Dennis the Bergkamp", bio: "Once I was seven years old my Mama told me go have a shit and bother the other's nut not me")
-User.create(email: "Batmuma@gmail.com", password: "Password", full_name: "Bat Mum", bio: "I always loved to be Bat Man. Apparently the doctor made some errors in my birth certificate")
-User.create(email: "cheat-r@gmail.com", password: "Password", full_name: "Cheat Exam", bio: "I'm full of hoesty and trust. Failed High-school though")
-User.create(email: "Nida@gmail.com", password: "Password", full_name: "Nida Jit", bio: "Do you know how much a Nida Jit weighs? Enough to break the Ice!")
-User.create(email: "f_hart@gmail.com", password: "Password", full_name: "Fu C.K. Hart", bio:"With a name like mine you don't need a bio anymore. Yours sincerly Fu C.K.")
-User.create(email: "Thad@gmail.com", password: "Password", full_name: "Whad Cha Do", bio: "Bad boys, bad boys, What Cha Do, I come for you")
+User.create(email: "1234@gmail.com", password: "Password", full_name: "Mike Hard", avatar: ActionController::Base.helpers.asset_path("avatars/boris.jpg"), bio: "When i'm not shitting i like to eat. My life is a circle, and i'm the compass")
+User.create(email: "JP@gmail.com", password: "Password", full_name: "Jane Peas", avatar: ActionController::Base.helpers.asset_path("avatars/bruno.jpg"), bio: "Some think i'm part of the black eyed peas. I'm not, but still I love to pee")
+User.create(email: "jonsnow@gmail.com", password: "Password", full_name: "Jon Snow", avatar: ActionController::Base.helpers.asset_path("avatars/dinis.jpg"), bio: "Before you say anything... I've heard that joke before. And no, winter is not coming.")
+User.create(email: "emily@gmail.com", password: "Password", full_name: "Emily Rata", avatar: ActionController::Base.helpers.asset_path("avatars/ijoline.jpg"), bio: "When i push too hard i get as hot as my role-model. Unfortunately only in my stomach")
+User.create(email: "ipfreely@gmail.com", password: "Password", full_name: "IP Man", avatar: ActionController::Base.helpers.asset_path("avatars/vianney.jpg"), bio: "My name is Man. Ip Man")
+User.create(email: "man-ur@gmail.com", password: "Password", full_name: "Manu el Neuer", avatar: ActionController::Base.helpers.asset_path("avatars/jonathan.jpg"), bio: "People say my name is funny. I prefere jokes about Vegans")
+User.create(email: "DTM@gmail.com", password: "Password", full_name: "Dennis the Bergkamp", avatar: ActionController::Base.helpers.asset_path("avatars/julius.jpg"), bio: "Once I was seven years old my Mama told me go have a shit and bother the other's nut not me")
+User.create(email: "Batmuma@gmail.com", password: "Password", full_name: "Bat Mum", avatar: ActionController::Base.helpers.asset_path("avatars/miguel.jpg"), bio: "I always loved to be Bat Man. Apparently the doctor made some errors in my birth certificate")
+User.create(email: "cheat-r@gmail.com", password: "Password", full_name: "Cheat Exam", avatar: ActionController::Base.helpers.asset_path("avatars/paulo.jpg"), bio: "I'm full of hoesty and trust. Failed High-school though")
+User.create(email: "Nida@gmail.com", password: "Password", full_name: "Nida Jit", avatar: ActionController::Base.helpers.asset_path("avatars/pietro.jpg"), bio: "Do you know how much a Nida Jit weighs? Enough to break the Ice!")
+User.create(email: "f_hart@gmail.com", password: "Password", full_name: "Fu C.K. Hart", avatar: ActionController::Base.helpers.asset_path("avatars/rita.jpg"), bio:"With a name like mine you don't need a bio anymore. Yours sincerly Fu C.K.")
+User.create(email: "Thad@gmail.com", password: "Password", full_name: "Whad Cha Do", avatar: ActionController::Base.helpers.asset_path("avatars/vincent.jpg"), bio: "Bad boys, bad boys, What Cha Do, I come for you")
 puts "Users...done!"
 puts "Creating toilets....."
 Toilet.create(price: 2, name: "Toilet for champs", floor_heating: true, air_con: true, speakers: true, available: true, window: true, wifi: true, description: "My husband likes to join sometimes", address:"Rua de o Seculo 1, Lisbon", remote_photo_url: "https://images.unsplash.com/photo-1556228149-d8f523f77b5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80", owner: User.all.sample)
