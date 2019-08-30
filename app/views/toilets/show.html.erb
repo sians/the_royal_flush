@@ -11,7 +11,7 @@
     <li><i class="fas fa-wifi <%= 'active' if @toilet.wifi %>" data-toggle="tooltip" data-placement="left" title="shit and surf"></i></li>
     <li></li>
   </ul>
-  <div class="img-container">
+  <div class="img-container" >
     <%=  cl_image_tag @toilet.photo, height: 500, width: 500, crop: :fill %>
   </div>
   <div class="listing-details">
@@ -65,7 +65,7 @@
   <!-- create a @toilet.overall_rating method in model -->
   <!-- need to make the condition based on REVIEWS NOT BOOKINGS -->
   <% if @toilet.reviews.empty? %>
-    <p>This toilet doesn't have any reviews yet</p>
+    <p class="margin-top">This toilet doesn't have any reviews yet</p>
   <% else %>
     <div class="stars">
       <ul class="stars stars-lg">
