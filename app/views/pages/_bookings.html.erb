@@ -10,7 +10,9 @@
           <div class="my-booking-card">
             <%= cl_image_tag @active_booking.toilet.photo, height: 100, width: 200, crop: :fill %>
             <div class="my-booking-card-details">
-              <p>You're on <span class="has-text-bold"><%= @active_booking.toilet.name %></span></p>
+              <%= link_to toilet_path(@active_booking.toilet) do %>
+                <p><%= @active_booking.toilet.name %></p>
+              <% end %>
             </div>
           </div>
         <% else %>
@@ -23,7 +25,7 @@
           <div class="my-booking-card">
             <%= cl_image_tag booking.toilet.photo, height: 100, width: 200, crop: :fill %>
             <div class="my-booking-card-details">
-              <p>You visited <span class="has-text-bold"><%= booking.toilet.name %></span></p>
+
               <% year = booking.start_time.year %>
               <% month = booking.start_time.month %>
               <% day = booking.start_time.day %>
@@ -31,6 +33,9 @@
               <% min = booking.start_time.min %>
               <% booking_date = "#{year}-#{month}-#{day} at #{hour}:#{min}" %>
               <p class="fine-sm-text">on <%= booking_date %></p>
+              <%= link_to toilet_path(booking.toilet) do %>
+                <p>You visited <span class="has-text-bold"><%= booking.toilet.name %></span></p>
+              <% end %>
               <% if booking.review.present? %>
                 <ul class="stars stars-sm">
                   <% booking.review.stars.times do |star| %>
