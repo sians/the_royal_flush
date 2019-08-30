@@ -1,8 +1,10 @@
 <div class="profiles">
   <div class="profile-card">
+    <% if current_user.avatar.present? %>
     <div class="avatar-user">
     <%= image_tag current_user.avatar, class:"avatar-large" %>
     </div>
+    <% end %>
 
     <div class="card-user-bio">
       <h2>Hi, I'm <%= current_user.full_name %></h2>
