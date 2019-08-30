@@ -16,6 +16,24 @@
             <% end %>
 
             <p class="fine-sm-text">has been booked <%= toilet.bookings.size %> times</p>
+
+            <% if toilet.avg_stars.present? %>
+              <ul class="stars stars-sm">
+                <% toilet.avg_stars.times do |star| %>
+                  <li><i class="fas fa-star"></i></li>
+                <% end %>
+                <% (5 - toilet.avg_stars).times do |star| %>
+                  <li><i class="fas fa-star grey"></i></li>
+                <% end %>
+              </ul>
+            <% else %>
+              <ul class="stars stars-sm">
+                <% 5.times do |star| %>
+                  <li><i class="fas fa-star grey"></i></li>
+                <% end %>
+              </ul>
+            <% end %>
+
             <p><%= toilet.description[0..150] %></p>
           </div>
 

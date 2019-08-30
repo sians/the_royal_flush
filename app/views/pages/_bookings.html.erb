@@ -43,6 +43,9 @@
                   <% booking.review.stars.times do |star| %>
                     <li><i class="fas fa-star"></i></li>
                   <% end %>
+                  <% (5 - booking.review.stars).times do |star| %>
+                    <li><i class="fas fa-star grey"></i></li>
+                  <% end %>
                 </ul>
               <% else %>
                 <ul class="stars stars-sm">
