@@ -58,6 +58,7 @@
 </div>
 
 <div class="container">
+  <div class="review-container">
   <h2>Reviews for this toilet:</h2>
 
   <!-- this doesn't work. -->
@@ -74,14 +75,15 @@
         <li><i class="fas fa-star"></i></li>
       </ul>
     </div>
+    </div>
 
     <% @toilet.reviews.each do |review| %>
       <div class="review-card">
         <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/random" alt="">
         <div class="review-card-content">
           <div class="review-card-headings">
-            <h3></h3>
-            <p>March 2018</p>
+            <h3><%= review.booking.user.full_name %></h3>
+            <p><%=review.created_at.to_date %></p>
           </div>
           <div>
             <p><%= review.description %></p>
@@ -96,7 +98,7 @@
 <div class="container">
   <h2>Other toilets nearby:</h2>
   <div class="row">
-    <% @toilets.each do |toilet| %>
+    <% @toilets.sample(6).each do |toilet| %>
       <div class="col-12 col-lg-4">
         <%= link_to toilet_path(toilet) do %>
           <div class="card toilet-card">
