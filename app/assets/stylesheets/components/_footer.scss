@@ -1,5 +1,13 @@
 .footer {
+  // display: flex;
+  // justify-content: space-between;
+  // margin-top: 50px;
+
+  height: 150px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
+  align-items: center;
+  justify-content: space-around;
+  // margin-top: 50px;
+  background-color: #f4c36c;
+  color: white;
 }

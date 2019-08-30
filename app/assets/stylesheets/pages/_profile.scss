@@ -1,14 +1,15 @@
 .profiles {
   display: flex;
+  padding-bottom: 70px;
 }
 
 .profile-tab-group {
   margin: 40px;
 }
 
-.tab-container {
-  padding-top: 60px;
-}
+// .tab-container {
+//   padding-top: 30px;
+// }
 
 ul.nav-tabs {
   list-style: none;
@@ -37,3 +38,24 @@ ul.nav-tabs li:hover {
   text-align: left;
   margin-top: 40px;
 }
+
+
+.notification-heading {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.in-use {
+  border-radius: 3px;
+  background-color: #C2252D;
+  color: white;
+  text-align: center;
+}
+
+.toilet-available {
+  border-radius: 3px;
+  background-color: #1D8545;
+  color: white;
+  text-align: center;
+}
+

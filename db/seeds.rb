@@ -1,4 +1,4 @@
-
+github.com:sians/the_royal_flush.git
 puts 'cleaning data......'
 Review.destroy_all
 Booking.destroy_all
@@ -7,24 +7,24 @@ User.destroy_all
 
 
 puts "Creating users .........."
-User.create(email: "1234@gmail.com", password: "Password", full_name: "One TT Four")
-User.create(email: "JP@gmail.com", password: "Password", full_name: "J Peas")
-User.create(email: "jonsnow@gmail.com", password: "Password", full_name: "Jon Snow")
-User.create(email: "emily@gmail.com", password: "Password", full_name: "Emily")
-User.create(email: "ipfreely@gmail.com", password: "Password", full_name: "IP Freely")
-User.create(email: "man-ur@gmail.com", password: "Password", full_name: "Man UR")
-User.create(email: "DTM@gmail.com", password: "Password", full_name: "Dennis the Menace")
-User.create(email: "Batmuma@gmail.com", password: "Password", full_name: "Bat Muma")
-User.create(email: "cheat-r@gmail.com", password: "Password", full_name: "Cheat R")
-User.create(email: "Nida@gmail.com", password: "Password", full_name: "Nida Jit")
-User.create(email: "f_hart@gmail.com", password: "Password", full_name: "F Hart")
-User.create(email: "Thad@gmail.com", password: "Password", full_name: "Wuotta Thad")
+User.create(email: "1234@gmail.com", password: "Password", full_name: "Mike Hard", bio: "When i'm not shitting i like to eat. My life is a circle, and i'm the compass")
+User.create(email: "JP@gmail.com", password: "Password", full_name: "Jane Peas", bio: "Some think i'm part of the black eyed peas. I'm not, but still I love to pee")
+User.create(email: "jonsnow@gmail.com", password: "Password", full_name: "Jon Snow", bio: "Before you say anything... I've heard that joke before. And no, winter is not coming.")
+User.create(email: "emily@gmail.com", password: "Password", full_name: "Emily Rata", bio: "When i push too hard i get as hot as my role-model. Unfortunately only in my stomach")
+User.create(email: "ipfreely@gmail.com", password: "Password", full_name: "IP Man", bio: "My name is Man. Ip Man")
+User.create(email: "man-ur@gmail.com", password: "Password", full_name: "Manu el Neuer", bio: "People say my name is funny. I prefere jokes about Vegans")
+User.create(email: "DTM@gmail.com", password: "Password", full_name: "Dennis the Bergkamp", bio: "Once I was seven years old my Mama told me go have a shit and bother the other's nut not me")
+User.create(email: "Batmuma@gmail.com", password: "Password", full_name: "Bat Mum", bio: "I always loved to be Bat Man. Apparently the doctor made some errors in my birth certificate")
+User.create(email: "cheat-r@gmail.com", password: "Password", full_name: "Cheat Exam", bio: "I'm full of hoesty and trust. Failed High-school though")
+User.create(email: "Nida@gmail.com", password: "Password", full_name: "Nida Jit", bio: "Do you know how much a Nida Jit weighs? Enough to break the Ice!")
+User.create(email: "f_hart@gmail.com", password: "Password", full_name: "Fu C.K. Hart", bio:"With a name like mine you don't need a bio anymore. Yours sincerly Fu C.K.")
+User.create(email: "Thad@gmail.com", password: "Password", full_name: "Whad Cha Do", bio: "Bad boys, bad boys, What Cha Do, I come for you")
 puts "Users...done!"
 puts "Creating toilets....."
 Toilet.create(price: 2, name: "Toilet for champs", floor_heating: true, air_con: true, speakers: true, available: true, window: true, wifi: true, description: "My husband likes to join sometimes", address:"Rua de o Seculo 1, Lisbon", remote_photo_url: "https://images.unsplash.com/photo-1556228149-d8f523f77b5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80", owner: User.all.sample)
 Toilet.create(price: 2, name: "Beautiful restaurated Toilet", air_con: true, available: true, wifi: true, description: "We can give you slippers", address:"Rua de São Bento 2, Lisbon", remote_photo_url: "https://static.boredpanda.com/blog/wp-content/uploads/2016/02/amazing-toilet-views-around-the-world-7__880.jpg", owner: User.all.sample)
 Toilet.create(price: 3, name: "Toilet clean af", available: true, floor_heating: true, air_con: true, speakers: true, description: "Only without shoes", address:"Rua do Conde de Redondo 27", remote_photo_url: "https://static.boredpanda.com/blog/wp-content/uploads/2016/02/amazing-toilet-views-around-the-world-91__880.jpg", owner: User.all.sample)
-Toilet.create(price: 2, name: "Toilet not so clean", air_con: true, speakers: true, available: true, window: true, wifi: true, description: "Radio does not work. You can make your own music. The view is really good (ocean right next to you) ", address:"Rua do Conde de Redondo 91, Santo António, Área Metropolitana de Lisboa, Portugal", remote_photo_url: "https://static.boredpanda.com/blog/wp-content/uploads/2016/02/amazing-toilet-views-around-the-world-25__880.jpg", owner: User.all.sample)
+Toilet.create(price: 2, name: "On the dock of the bay", air_con: true, speakers: true, available: true, window: true, wifi: true, description: "Radio does not work. You can make your own music. The view is really good (ocean right next to you) ", address:"Rua do Conde de Redondo 91, Santo António, Área Metropolitana de Lisboa, Portugal", remote_photo_url: "https://static.boredpanda.com/blog/wp-content/uploads/2016/02/amazing-toilet-views-around-the-world-25__880.jpg", owner: User.all.sample)
 Toilet.create(price: 9, name: "Toilet not so clean", available: true, floor_heating: true, description: "Not longer than 5 min pls. My younger brother has stomach illness. You too after using it, didn't clean since Bowie died", address:"Rua do Conde de Redondo 5, Santo António, Área Metropolitana de Lisboa, Portugal", remote_photo_url: "https://previews.123rf.com/images/neagonefo/neagonefo1709/neagonefo170900127/86894394-dirty-old-toilets-bowl-and-the-bathrooms-is-not-very-clean.jpg", owner: User.all.sample)
 Toilet.create(price: 1, name: "Je pisse donc je suis",  air_con: true, available: true, window: true, description: "Smells like flowers, even after your conference. Installed Venus breeze right next to toilet. Also the bible is in a cupboard next to toilet (put bible on the right of toilet, in case you need further help from higher powers", reading_material: true, address:"Rua do Conde de Redondo 42", remote_photo_url: "https://i.pinimg.com/originals/8d/c6/bc/8dc6bc8ab8a0476d7cdc81fa2b48ee1f.jpg", owner: User.all.sample)
 Toilet.create(price: 2, name: "Klo der Weisen", available: true,  description: "I have so many books in my bathroom you don't want to stand up anymore. If you do, take care, the ceiling is not so high.", reading_material: true, address:"rua andaluz 17 lisbon", remote_photo_url: "https://i.pinimg.com/736x/3a/67/80/3a67804b3f4d19e134cadbf535ad0e74.jpg", owner: User.all.sample)
@@ -44,7 +44,7 @@ end
 puts "Bookings are done."
 
 puts "Now adding reviews......"
-description = ["The experience of a lifetime!", "OMG! Amazing!", "I had to catch up with my reading someday. This was it!", "What a junk! A huge disappointment.", "Don't ever go there.", "Great sound system. Why do people party at discos?", "No matter what, there's so such thing like home.", "Don't be fouled. The sound isn't even stereo...", "A decent shithouse", "Excellent value for money", "I didn't know what life was until I found this place", "Before I came to this spot I thought sex was the best thing in life"]
+description = ["The experience of a lifetime!", "OMG! Amazing!", "I had to catch up with my reading someday!...", "What a junk! A huge disappointment.", "Don't ever go there.", "Great sound system. Why do people party at discos?", "There's no such thing like home.", "Don't be fooled. The sound isn't even stereo...", "A decent shithouse.", "Excellent value for money.", "I didn't know what life was until I found this place", "Before I came to this spot I thought sex was the best thing in life."]
 60.times do
   r = Review.new(booking: Booking.all.sample, stars: rand(0..5), description: description.sample)
   r.save

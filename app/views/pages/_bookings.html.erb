@@ -1,6 +1,5 @@
-<div class="tab-container">
+<div class="tab-container" style="padding-top: 0px">
   <div class="my-toilets-content">
-    <h3>My Bookings</h3>
     <% if current_user.bookings.empty? %>
       <h3>You haven't made any bookings yet!</h3>
     <% else %>
@@ -11,10 +10,9 @@
           <div class="my-booking-card">
             <%= cl_image_tag @active_booking.toilet.photo, height: 100, width: 200, crop: :fill %>
             <div class="my-booking-card-details">
-              <p>You're on <span class="has-text-bold"><%= @active_booking.toilet.name %></span></p>
-            </div>
-            <div class="my-booking-card-actions">
-                <%#= link_to "I'm done!", edit_booking_path class: 'btn btn-submit btn-green'%>
+              <%= link_to toilet_path(@active_booking.toilet) do %>
+                <p><%= @active_booking.toilet.name %></p>
+              <% end %>
             </div>
           </div>
         <% else %>
@@ -27,8 +25,17 @@
           <div class="my-booking-card">
             <%= cl_image_tag booking.toilet.photo, height: 100, width: 200, crop: :fill %>
             <div class="my-booking-card-details">
-              <p>You visited <span class="has-text-bold"><%= booking.toilet.name %></span></p>
-              <p class="fine-sm-text">on <%= booking.start_time %></p>
+
+              <% year = booking.start_time.year %>
+              <% month = booking.start_time.month %>
+              <% day = booking.start_time.day %>
+              <% hour = booking.start_time.hour %>
+              <% min = booking.start_time.min %>
+              <% booking_date = "#{year}-#{month}-#{day} at #{hour}:#{min}" %>
+              <p class="fine-sm-text">on <%= booking_date %></p>
+              <%= link_to toilet_path(booking.toilet) do %>
+                <p>You visited <span class="has-text-bold"><%= booking.toilet.name %></span></p>
+              <% end %>
               <% if booking.review.present? %>
                 <ul class="stars stars-sm">
                   <% booking.review.stars.times do |star| %>
